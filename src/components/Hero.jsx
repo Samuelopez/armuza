@@ -9,7 +9,7 @@ const Hero = () => {
   
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75; // Velocidad más rápida (0.75x)
+      videoRef.current.playbackRate = 0.6; // Velocidad moderada (0.6x)
     }
   }, []);
 
@@ -104,12 +104,12 @@ const Hero = () => {
               <motion.div
                 key={index}
                 whileHover="hover"
-                className="flex flex-col items-center space-y-2 p-4 glass-effect rounded-xl metallic-border subtle-shine"
+                className="flex flex-col items-center space-y-2 p-4 glass-effect rounded-xl subtle-shine"
               >
                 <motion.div variants={iconVariants}>
-                  <item.icon className="w-8 h-8 text-subtle" />
+                  <item.icon className="w-8 h-8 text-white" />
                 </motion.div>
-                <span className="text-main text-sm font-medium">{item.label}</span>
+                <span className="text-white text-sm font-medium">{item.label}</span>
               </motion.div>
             ))}
           </motion.div>
