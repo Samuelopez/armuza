@@ -72,7 +72,7 @@ const FAQSection = () => {
 
         <div className="space-y-6">
           {faqs.map((faq, index) => (
-            <motion.div
+            <motion.div  
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
