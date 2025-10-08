@@ -67,7 +67,6 @@ const Contact = () => {
       toast({
         title: "¡Mensaje Enviado Exitosamente!",
         description: "Gracias por contactarnos. Nos comunicaremos contigo a la brevedad.",
-        action: <CheckCircle className="text-green-500" />,
       });
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
     } catch (error) {
