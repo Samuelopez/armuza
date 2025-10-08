@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { 
-  Phone, 
+  Phone,   
   Mail, 
   MapPin, 
   Clock,
