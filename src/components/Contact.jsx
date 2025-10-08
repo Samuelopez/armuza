@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { 
   Phone,    
-  Mail, 
+  Mail,  
   MapPin, 
   Clock,
   Send,
