@@ -24,7 +24,7 @@ const Navbar = () => {
     { path: '/', label: 'Inicio', icon: Home },
     { path: '/servicios', label: 'Servicios', icon: Wrench },
     { path: '/nosotros', label: 'Nosotros', icon: Users },
-    { path: '/contacto', label: 'Contacto', icon: Phone },
+    { path: '/catalogo', label: 'Catálogo', icon: Briefcase },
   ];
 
   const navLinkVariants = {
@@ -65,7 +65,11 @@ const Navbar = () => {
             className="flex items-center space-x-2"
           >
             <Link to="/" className="flex items-center space-x-2 group">
-              <Briefcase className="w-8 h-8 text-white group-hover:animate-pulse" />
+              <img 
+                src="/img/logo.png" 
+                alt="ARMUZA Logo" 
+                className="w-8 h-8 object-contain group-hover:scale-110 transition-transform duration-300"
+              />
               <span className="text-2xl font-bold text-white tracking-wider group-hover:brightness-125 transition-all">
                 ARMUZA
               </span>
@@ -86,17 +90,40 @@ const Navbar = () => {
                 <Link
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2
-                    ${location.pathname === item.path 
-                      ? 'bg-white/20 text-white scale-105' 
-                      : 'text-white hover:bg-white/10'
-                    }`}
+                  className="px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 text-white hover:bg-white/10 relative"
                 >
                   <item.icon className="w-4 h-4 text-white" />
                   <span>{item.label}</span>
+                  {location.pathname === item.path && (
+                    <motion.div 
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
+                      layoutId="underline"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
                 </Link>
               </motion.div>
             ))}
+            
+            <motion.div
+              variants={navLinkVariants}
+              initial="initial"
+              animate="animate"
+              whileHover="hover"
+              whileTap="tap"
+              transition={{ delay: navItems.length * 0.1 + 0.3, duration: 0.3 }}
+              className="ml-4"
+            >
+              <Link
+                to="/contacto"
+                className="px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 border border-white/70 bg-white/10 hover:bg-white/20"
+              >
+                <Phone className="w-4 h-4 text-white" />
+                <span className="text-white">Contacto</span>
+              </Link>
+            </motion.div>
           </div>
 
           <div className="md:hidden flex items-center">

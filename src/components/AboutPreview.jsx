@@ -30,7 +30,7 @@ const AboutPreview = () => {
             <img 
               className="w-full h-auto max-h-[550px] object-cover rounded-xl" 
               alt="Equipo ARMUZA colaborando en un proyecto de diseño de interiores, con planos y muestras de materiales"
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf"
+              src="/img/3años.png"
             />
             <motion.div 
               className="absolute -bottom-5 -left-5 w-24 h-24 bg-gold-gradient rounded-full flex items-center justify-center text-primary shadow-xl"
@@ -56,10 +56,10 @@ const AboutPreview = () => {
             </span>
           </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold text-main mb-6 tracking-tight">
-            Más que Muebles, <span className="gradient-text">Creamos Legados</span>
+            Remodelaciones, <span className="gradient-text">Creamos Legados</span>
           </h2>
           <p className="text-subtle leading-relaxed mb-6 text-lg">
-            En ARMUZA, cada proyecto es una obra de arte. Con más de 15 años de experiencia, 
+            En ARMUZA, cada proyecto es una obra de arte. Con más de 3 años de experiencia, 
             fusionamos la artesanía tradicional con la innovación para crear espacios que 
             inspiran y perduran.
           </p>
@@ -71,7 +71,7 @@ const AboutPreview = () => {
             </div>
             <div className="text-center">
               <Award className="w-10 h-10 text-highlight mx-auto mb-2" />
-              <p className="text-2xl font-bold gradient-text">15+</p>
+              <p className="text-2xl font-bold gradient-text">3+</p>
               <p className="text-subtle text-sm">Años de Trayectoria</p>
             </div>
           </div>

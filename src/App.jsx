@@ -8,8 +8,20 @@ import HomePage from '@/pages/HomePage';
 import ServicesPage from '@/pages/ServicesPage';
 import AboutPage from '@/pages/AboutPage';
 import ContactPage from '@/pages/ContactPage';
+import CatalogPage from '@/pages/CatalogPage';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ThemeProvider } from '@/components/ThemeProvider';
+
+// Componente para controlar el scroll al cambiar de ruta
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
+  return null;
+};
 
 const PageLayout = ({ children }) => {
   const location = useLocation();
@@ -32,6 +44,7 @@ function App() {
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Router>
         <div className="min-h-screen bg-main text-main flex flex-col">
+          <ScrollToTop />
           <Navbar />
           <main className="flex-grow pt-16">
             <AnimatePresence mode="wait">
@@ -40,6 +53,7 @@ function App() {
                 <Route path="/servicios" element={<PageLayout><ServicesPage /></PageLayout>} />
                 <Route path="/nosotros" element={<PageLayout><AboutPage /></PageLayout>} />
                 <Route path="/contacto" element={<PageLayout><ContactPage /></PageLayout>} />
+                <Route path="/catalogo" element={<PageLayout><CatalogPage /></PageLayout>} />
               </Routes>
             </AnimatePresence>
           </main>

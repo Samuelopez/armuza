@@ -15,7 +15,7 @@ import {
 const About = () => {
   const stats = [
     { icon: Users, number: '500+', label: 'Clientes Satisfechos' },
-    { icon: Award, number: '15+', label: 'Años de Experiencia' },
+    { icon: Award, number: '3+', label: 'Años de Experiencia' },
     { icon: Clock, number: '1000+', label: 'Proyectos Exitosos' },
     { icon: Star, number: '4.9', label: 'Calificación Estelar' },
   ];
@@ -110,7 +110,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 mb-20 items-center">
           <motion.div variants={itemVariants} className="space-y-6">
-            <div className="glass-effect rounded-2xl p-8 metallic-border subtle-shine">
+            <div className="glass-effect rounded-2xl p-8 subtle-shine">
               <h3 className="text-2xl font-bold text-highlight mb-4">Nuestra Esencia</h3>
               <p className="text-subtle leading-relaxed mb-4">
                 Nacimos con la visión de redefinir el interiorismo y la ebanistería. 
@@ -124,7 +124,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="glass-effect rounded-2xl p-8 metallic-border subtle-shine">
+            <div className="glass-effect rounded-2xl p-8 subtle-shine">
               <h3 className="text-2xl font-bold text-main mb-4">Nuestra Misión</h3>
               <p className="text-subtle leading-relaxed">
                 Elevar cada espacio a su máximo potencial a través de soluciones de diseño 
@@ -150,7 +150,7 @@ const About = () => {
               className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 glass-effect rounded-xl p-4 md:p-6 metallic-border shadow-lg"
             >
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold gradient-text">15+</div>
+                <div className="text-2xl md:text-3xl font-bold gradient-text">3</div>
                 <div className="text-main text-xs md:text-sm">Años de Maestría</div>
               </div>
             </motion.div>
@@ -169,7 +169,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -5, boxShadow: "0 10px 20px rgba(212, 175, 55, 0.2)" }}
-              className="text-center glass-effect rounded-xl p-6 metallic-border subtle-shine"
+              className="text-center glass-effect rounded-xl p-6 subtle-shine"
             >
               <motion.div
                 whileHover={{ rotate: 10, scale: 1.1 }}
@@ -201,7 +201,7 @@ const About = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.03, y: -8, boxShadow: "0 15px 30px rgba(212, 175, 55, 0.25)" }}
-              className="text-center glass-effect rounded-xl p-6 metallic-border subtle-shine h-full flex flex-col"
+              className="text-center glass-effect rounded-xl p-6 subtle-shine h-full flex flex-col"
             >
               <motion.div
                 whileHover={{ scale: 1.15, rotate: -5 }}

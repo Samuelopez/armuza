@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Hammer, Palette, Home, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,12 +6,32 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const videoRef = useRef(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const serviceImages = [
+    '/img/servicios/remodelacion.png',
+    '/img/servicios/cocina.png',
+    '/img/servicios/muebles.png',
+    '/img/servicios/impermeabilizacion.png',
+    '/img/servicios/muebles2.png',
+    '/img/servicios/impermeabilizacion1.png'
+  ];
   
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.6; // Velocidad moderada (0.6x)
     }
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % serviceImages.length
+      );
+    }, 3000); // Cambiar imagen cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, [serviceImages.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,16 +53,21 @@ const Hero = () => {
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-theme-gradient">
       <div className="absolute inset-0 z-0">
-        <video 
-          ref={videoRef}
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover"
+        {/* Carrusel de imágenes */}
+        <motion.div
+          key={currentImageIndex}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          className="w-full h-full"
         >
-          <source src="/video/inicio.mp4" type="video/mp4" />
-        </video>
+          <img 
+            src={serviceImages[currentImageIndex]}
+            alt={`Servicio ${currentImageIndex + 1}`}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
       <div className="absolute inset-0 opacity-20 z-0">
@@ -66,7 +91,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -74,7 +99,11 @@ const Hero = () => {
           className="space-y-8"
         >
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <Zap className="w-16 h-16 gradient-text text-shadow-gold" />
+            <img 
+              src="/img/logo.png" 
+              alt="Logo ARMUZA" 
+              className="w-24 h-24 object-contain"
+            />
           </motion.div>
           
           <motion.h1
@@ -133,7 +162,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
@@ -142,13 +171,6 @@ const Hero = () => {
           <ArrowDown className="w-6 h-6 text-highlight/70" />
         </motion.div>
       </motion.div>
-      <div className="absolute bottom-0 left-0 w-full h-48">
-        <img 
-          alt="Silueta de herramientas de carpintería sobre un fondo oscuro"
-          className="w-full h-full object-cover opacity-5 dark:opacity-10"
-          src="https://images.unsplash.com/photo-1609081219090-a6d81d3085bf"
-        />
-      </div>
     </section>
   );
 };

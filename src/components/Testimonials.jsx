@@ -90,7 +90,7 @@ const Testimonials = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ y: -8, boxShadow: "0 20px 40px hsl(var(--accent) / 0.2)" }}
-              className="glass-effect rounded-2xl p-8 metallic-border subtle-shine h-full flex flex-col"
+              className="glass-effect rounded-2xl p-8 subtle-shine h-full flex flex-col"
             >
               <div className="flex items-center mb-4">
                 <div className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center text-primary font-bold text-xl shadow-md mr-4">

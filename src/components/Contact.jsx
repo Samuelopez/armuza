@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Phone, 
   Mail, 
@@ -45,21 +46,46 @@ const Contact = () => {
     }
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      // Configuración de EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'No proporcionado',
+        service: formData.service || 'No especificado',
+        message: formData.message
+      };
+
+      // Enviar email usando EmailJS
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
       toast({
         title: "¡Mensaje Enviado Exitosamente!",
         description: "Gracias por contactarnos. Nos comunicaremos contigo a la brevedad.",
         action: <CheckCircle className="text-green-500" />,
       });
       setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error) {
+      console.error('Error al enviar el email:', error);
+      toast({
+        title: "Error al enviar mensaje",
+        description: "Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const contactInfo = [
     { icon: Phone, title: 'Llámanos', info: '+52 (55) 1234-5678', description: 'Atención personalizada' },
     { icon: Mail, title: 'Escríbenos', info: 'contacto@armuza.com', description: 'Respuesta rápida garantizada' },
-    { icon: MapPin, title: 'Visítanos (Previa Cita)', info: 'Showroom en CDMX', description: 'Experimenta la calidad ARMUZA' },
+    // { icon: MapPin, title: 'Visítanos (Previa Cita)', info: 'Showroom en CDMX', description: 'Experimenta la calidad ARMUZA' },
     { icon: Clock, title: 'Horario de Atención', info: 'Lun-Vie: 9am-6pm', description: 'Sáb: 10am-2pm' }
   ];
 
@@ -121,7 +147,7 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
-          <motion.div variants={itemVariants} className="glass-effect rounded-2xl p-8 metallic-border subtle-shine">
+          <motion.div variants={itemVariants} className="glass-effect rounded-2xl p-8 subtle-shine">
             <div className="flex items-center space-x-3 mb-6">
               <motion.div 
                 className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center shadow-md"
@@ -205,31 +231,34 @@ const Contact = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {contactInfo.map((item, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.03, y: -5, boxShadow: "0 8px 16px hsl(var(--accent) / 0.2)" }}
-                  className="glass-effect rounded-xl p-6 metallic-border subtle-shine h-full"
-                >
+            <div className="bg-card/30 rounded-xl p-8 border border-card/20">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {contactInfo.map((item, index) => (
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center mb-4 shadow-md"
+                    key={index}
+                    variants={itemVariants}
+                    className="flex items-start space-x-4"
                   >
-                    <item.icon className="w-6 h-6 text-primary" />
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center flex-shrink-0"
+                    >
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </motion.div>
+                    <div>
+                      <h3 className="text-lg font-bold text-main mb-1">{item.title}</h3>
+                      <p className="text-highlight font-medium mb-1">{item.info}</p>
+                      <p className="text-subtle text-sm">{item.description}</p>
+                    </div>
                   </motion.div>
-                  <h3 className="text-lg font-bold text-main mb-2">{item.title}</h3>
-                  <p className="text-highlight font-medium mb-1">{item.info}</p>
-                  <p className="text-subtle text-sm">{item.description}</p>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            <motion.div variants={itemVariants} className="glass-effect rounded-2xl p-8 metallic-border subtle-shine">
+            <motion.div variants={itemVariants} className="bg-card/30 rounded-2xl p-8 border border-card/20">
               <div className="flex items-center space-x-3 mb-6">
                 <motion.div 
-                  className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center shadow-md"
+                  className="w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center"
                   whileHover={{ scale: 1.1, rotate: -5 }}
                 >
                   <Star className="w-6 h-6 text-primary" />
