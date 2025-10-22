@@ -183,6 +183,24 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
+
+              {/* Enlace de Contacto para menú móvil */}
+              <motion.div
+                variants={mobileLinkVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ delay: navItems.length * 0.05 + 0.05, duration: 0.2 }}
+              >
+                <Link
+                  to="/contacto"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-3 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-3 text-main hover:text-accent hover:bg-card/80"
+                >
+                  <Phone className="w-5 h-5 text-main" />
+                  <span className="text-main">Contacto</span>
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         )}
