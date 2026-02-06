@@ -665,7 +665,7 @@ const CatalogContent = () => {
                     whileTap={{ scale: 0.95 }}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300
                       ${(activeSubcategory || currentCategory.subcategories[0]?.id) === subcat.id
-                        ? 'bg-accent/20 text-accent border border-accent'
+                        ? 'bg-accent/20 text-highlight border border-highlight'
                         : 'bg-card/50 text-subtle hover:text-main hover:bg-card border border-transparent'
                       }`}
                   >
