@@ -1,13 +1,15 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Hammer, Palette, Home, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const Hero = () => {
   const videoRef = useRef(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
   const serviceImages = [
     '/img/servicios/remodelacion.png',
     '/img/servicios/cocina.png',
@@ -16,19 +18,19 @@ const Hero = () => {
     '/img/servicios/muebles2.png',
     '/img/servicios/impermeabilizacion1.png'
   ];
-  
+
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.6; // Velocidad moderada (0.6x)
+      videoRef.current.playbackRate = 0.6;
     }
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setCurrentImageIndex((prevIndex) =>
         (prevIndex + 1) % serviceImages.length
       );
-    }, 3000); // Cambiar imagen cada 3 segundos
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [serviceImages.length]);
@@ -53,7 +55,6 @@ const Hero = () => {
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-theme-gradient">
       <div className="absolute inset-0 z-0">
-        {/* Carrusel de imágenes */}
         <motion.div
           key={currentImageIndex}
           initial={{ opacity: 0, scale: 1.1 }}
@@ -62,7 +63,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeInOut" }}
           className="w-full h-full"
         >
-          <img 
+          <img
             src={serviceImages[currentImageIndex]}
             alt={`Servicio ${currentImageIndex + 1}`}
             className="w-full h-full object-cover"
@@ -99,13 +100,13 @@ const Hero = () => {
           className="space-y-8"
         >
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <img 
-              src="/img/logo.png" 
-              alt="Logo ARMUZA" 
+            <img
+              src="/img/logo.png"
+              alt="Logo ARMUZA"
               className="w-24 h-24 object-contain"
             />
           </motion.div>
-          
+
           <motion.h1
             variants={itemVariants}
             className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
@@ -117,7 +118,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-xl md:text-2xl text-white max-w-3xl mx-auto leading-relaxed"
           >
-            Transformamos tus espacios con <span className="text-white font-bold">diseño y maestría</span>. 
+            Transformamos tus espacios con <span className="text-white font-bold">diseño y maestría</span>.
             Muebles, cocinas, remodelaciones y más.
           </motion.p>
 
@@ -149,7 +150,7 @@ const Hero = () => {
               size="lg"
               className="bg-gold-gradient text-primary hover:scale-105 transition-all duration-300 px-10 py-6 text-lg font-semibold golden-glow shadow-lg hover:shadow-accent/50"
             >
-              <Link to="/servicios">
+              <Link href="/servicios">
                 Explora Servicios
                 <ArrowDown className="w-5 h-5 ml-2 transform -rotate-90 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -157,7 +158,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
-      
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

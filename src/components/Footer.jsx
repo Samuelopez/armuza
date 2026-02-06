@@ -1,11 +1,12 @@
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { 
-  Phone, 
-  Mail, 
+import {
+  Phone,
+  Mail,
   MapPin,
   Facebook,
   Instagram,
@@ -33,37 +34,36 @@ const Footer = () => {
   ];
 
   const services = [
-    'Muebles Personalizados',
-    'Cocinas Integrales',
-    'Remodelaciones',
+    'Metal & Forja Arquitectónica',
+    'Carpintería de Diseño',
+    'Tablaroca & Acabados',
     'Impermeabilización',
-    'Acabados Premium',
-    'Mantenimiento',
+    'Remodelación Integral',
   ];
 
   return (
     <footer className="relative overflow-hidden bg-card border-t-2 border-accent/30">
-      <div className="absolute inset-0 opacity-5 dark:opacity-3">
+      <div className="absolute inset-0 opacity-5">
         <motion.div
-          animate={{ 
+          animate={{
             rotate: [0, 360],
             scale: [1, 1.2, 1, 1.2, 1],
             opacity: [0.05, 0.1, 0.05, 0.1, 0.05]
           }}
-          transition={{ 
-            duration: 40, 
-            repeat: Infinity, 
-            ease: "linear" 
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear"
           }}
           className="absolute top-1/4 left-1/4 w-64 h-64 border-2 border-accent/20 rounded-full"
         />
         <motion.div
-          animate={{ 
+          animate={{
             y: [-20, 20, -20],
             opacity: [0.03, 0.08, 0.03]
           }}
-          transition={{ 
-            duration: 10, 
+          transition={{
+            duration: 10,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -81,7 +81,7 @@ const Footer = () => {
             className="space-y-6"
           >
             <div>
-              <Link to="/" className="inline-block">
+              <Link href="/" className="inline-block">
                 <motion.span
                   whileHover={{ scale: 1.05, textShadow: "0 0 15px hsl(var(--accent))" }}
                   className="text-4xl font-bold gradient-text metallic-sheen cursor-pointer"
@@ -90,7 +90,7 @@ const Footer = () => {
                 </motion.span>
               </Link>
               <p className="text-subtle mt-4 leading-relaxed text-sm">
-                Transformando espacios con diseño, calidad y pasión. Muebles y remodelaciones que inspiran.
+                Transformando espacios con diseño, calidad y pasión. Soluciones integrales de clase mundial.
               </p>
             </div>
             <div className="flex space-x-3">
@@ -128,7 +128,7 @@ const Footer = () => {
                   viewport={{ once: true }}
                 >
                   <Link
-                    to={link.path}
+                    href={link.path}
                     className="text-subtle hover:text-accent transition-colors duration-300 hover:translate-x-1 transform flex items-center group text-sm"
                   >
                     <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
@@ -145,9 +145,9 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <span className="text-xl font-bold text-highlight mb-6 block metallic-sheen-light">Servicios Destacados</span>
+            <span className="text-xl font-bold text-highlight mb-6 block metallic-sheen-light">Nuestros Servicios</span>
             <ul className="space-y-3">
-              {services.slice(0, 4).map((service, index) => (
+              {services.map((service, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -156,18 +156,18 @@ const Footer = () => {
                   viewport={{ once: true }}
                   className="text-subtle hover:text-accent transition-colors duration-300 cursor-default hover:translate-x-1 transform flex items-center group text-sm"
                 >
-                   <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
+                  <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
                   {service}
                 </motion.li>
               ))}
-               <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                >
-                <Link to="/servicios" className="text-highlight hover:text-highlight/80 font-bold transition-colors duration-300 flex items-center group text-sm">
-                  Ver todos <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+              <motion.li
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                viewport={{ once: true }}
+              >
+                <Link href="/catalogo" className="text-highlight hover:text-highlight/80 font-bold transition-colors duration-300 flex items-center group text-sm">
+                  Ver catálogo <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </motion.li>
             </ul>
@@ -182,7 +182,7 @@ const Footer = () => {
             <span className="text-xl font-bold text-highlight mb-6 block metallic-sheen-light">Contáctanos</span>
             <div className="space-y-4">
               {[
-                { icon: Phone, text: '+52 (55) 1234-5678', href: 'tel:+525512345678' },
+                { icon: Phone, text: '+52 1 722 536 5692', href: 'tel:+5217225365692' },
                 { icon: Mail, text: 'contacto@armuza.com', href: 'mailto:contacto@armuza.com' },
                 { icon: MapPin, text: 'Ciudad de México, CDMX', href: '#' }
               ].map((item, index) => (
@@ -204,7 +204,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="mt-6"
             >
-              <Link to="/contacto">
+              <Link href="/contacto">
                 <Button
                   variant="outline"
                   size="lg"

@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -58,10 +59,10 @@ const Contact = () => {
 
       // Enviar email usando EmailJS
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         templateParams,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       toast({
@@ -82,8 +83,8 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, title: 'Llámanos', info: '+52 (55) 1234-5678', description: 'Atención personalizada' },
-    { icon: Mail, title: 'Escríbenos', info: 'contacto@armuza.com', description: 'Respuesta rápida garantizada' },
+    { icon: Phone, title: 'Llámanos', info: '+52 1 722 536 5692', description: 'Atención personalizada', href: 'tel:+5217225365692' },
+    { icon: Mail, title: 'Escríbenos', info: 'contacto@armuza.com', description: 'Respuesta rápida garantizada', href: 'mailto:contacto@armuza.com' },
     // { icon: MapPin, title: 'Visítanos (Previa Cita)', info: 'Showroom en CDMX', description: 'Experimenta la calidad ARMUZA' },
     { icon: Clock, title: 'Horario de Atención', info: 'Lun-Vie: 9am-6pm', description: 'Sáb: 10am-2pm' }
   ];
@@ -246,7 +247,11 @@ const Contact = () => {
                     </motion.div>
                     <div>
                       <h3 className="text-lg font-bold text-main mb-1">{item.title}</h3>
-                      <p className="text-highlight font-medium mb-1">{item.info}</p>
+                      {item.href ? (
+                        <a href={item.href} className="text-highlight font-medium mb-1 hover:underline">{item.info}</a>
+                      ) : (
+                        <p className="text-highlight font-medium mb-1">{item.info}</p>
+                      )}
                       <p className="text-subtle text-sm">{item.description}</p>
                     </div>
                   </motion.div>

@@ -1,16 +1,16 @@
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Wrench, Users, Phone, Briefcase, Sun, Moon } from 'lucide-react';
+import { Menu, X, Home, Wrench, Users, Phone, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link, useLocation } from 'react-router-dom';
-import { useTheme } from '@/components/ThemeProvider';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,15 +33,11 @@ const Navbar = () => {
     hover: { scale: 1.1, color: "hsl(var(--accent))" },
     tap: { scale: 0.95 }
   };
-  
+
   const mobileLinkVariants = {
     initial: { x: -20, opacity: 0 },
     animate: { x: 0, opacity: 1 },
     exit: { x: 20, opacity: 0 }
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   return (
@@ -52,9 +48,9 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || isOpen ? 'shadow-xl border-b border-gold-gradient/30 backdrop-blur-md' : ''
       }`}
-      style={{ 
-        background: scrolled 
-          ? 'linear-gradient(to right, rgba(133, 73, 55, 0.8), rgba(133, 73, 55, 0.7), rgba(133, 73, 55, 0.8))' 
+      style={{
+        background: scrolled
+          ? 'linear-gradient(to right, rgba(133, 73, 55, 0.8), rgba(133, 73, 55, 0.7), rgba(133, 73, 55, 0.8))'
           : 'linear-gradient(to right, #854937, #9a5a45, #854937)'
       }}
     >
@@ -64,10 +60,10 @@ const Navbar = () => {
             whileHover={{ scale: 1.05, rotate: -2 }}
             className="flex items-center space-x-2"
           >
-            <Link to="/" className="flex items-center space-x-2 group">
-              <img 
-                src="/img/logo.png" 
-                alt="ARMUZA Logo" 
+            <Link href="/" className="flex items-center space-x-2 group">
+              <img
+                src="/img/logo.png"
+                alt="ARMUZA Logo"
                 className="w-8 h-8 object-contain group-hover:scale-110 transition-transform duration-300"
               />
               <span className="text-2xl font-bold text-white tracking-wider group-hover:brightness-125 transition-all">
@@ -88,14 +84,14 @@ const Navbar = () => {
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.3 }}
               >
                 <Link
-                  to={item.path}
+                  href={item.path}
                   onClick={() => setIsOpen(false)}
                   className="px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 text-white hover:bg-white/10 relative"
                 >
                   <item.icon className="w-4 h-4 text-white" />
                   <span>{item.label}</span>
-                  {location.pathname === item.path && (
-                    <motion.div 
+                  {pathname === item.path && (
+                    <motion.div
                       className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
                       layoutId="underline"
                       initial={{ opacity: 0 }}
@@ -106,7 +102,7 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
-            
+
             <motion.div
               variants={navLinkVariants}
               initial="initial"
@@ -117,7 +113,7 @@ const Navbar = () => {
               className="ml-4"
             >
               <Link
-                to="/contacto"
+                href="/contacto"
                 className="px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 flex items-center space-x-2 border border-white/70 bg-white/10 hover:bg-white/20"
               >
                 <Phone className="w-4 h-4 text-white" />
@@ -170,21 +166,20 @@ const Navbar = () => {
                   transition={{ delay: index * 0.05, duration: 0.2 }}
                 >
                   <Link
-                    to={item.path}
+                    href={item.path}
                     onClick={() => setIsOpen(false)}
                     className={`block px-3 py-3 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-3
-                      ${location.pathname === item.path 
-                        ? 'text-accent bg-card/90' 
+                      ${pathname === item.path
+                        ? 'text-accent bg-card/90'
                         : 'text-main hover:text-accent hover:bg-card/80'
                       }`}
                   >
-                    <item.icon className={`w-5 h-5 ${location.pathname === item.path ? 'text-accent' : 'text-main'}`} />
+                    <item.icon className={`w-5 h-5 ${pathname === item.path ? 'text-accent' : 'text-main'}`} />
                     <span className="text-main">{item.label}</span>
                   </Link>
                 </motion.div>
               ))}
 
-              {/* Enlace de Contacto para menú móvil */}
               <motion.div
                 variants={mobileLinkVariants}
                 initial="initial"
@@ -193,7 +188,7 @@ const Navbar = () => {
                 transition={{ delay: navItems.length * 0.05 + 0.05, duration: 0.2 }}
               >
                 <Link
-                  to="/contacto"
+                  href="/contacto"
                   onClick={() => setIsOpen(false)}
                   className="block px-3 py-3 rounded-md text-base font-medium transition-all duration-300 flex items-center space-x-3 text-main hover:text-accent hover:bg-card/80"
                 >

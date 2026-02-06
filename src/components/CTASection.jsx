@@ -1,8 +1,9 @@
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, PhoneCall } from 'lucide-react';
 
 const CTASection = ({
@@ -13,10 +14,10 @@ const CTASection = ({
 }) => {
   return (
     <section className="py-20 bg-main relative overflow-hidden">
-      <div className="absolute inset-0 opacity-20 dark:opacity-10">
-        <motion.div 
+      <div className="absolute inset-0 opacity-20">
+        <motion.div
           className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/40 via-transparent to-primary/40 filter blur-3xl"
-          animate={{ 
+          animate={{
             backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -51,7 +52,7 @@ const CTASection = ({
             variant="highlight"
             className="font-medium shadow-xl hover:scale-105 transition-all duration-300 px-10 py-6 text-lg golden-glow hover:shadow-accent/60 group"
           >
-            <Link to={buttonLink}>
+            <Link href={buttonLink}>
               {buttonText}
               <ArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
