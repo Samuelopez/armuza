@@ -185,7 +185,7 @@ const About = () => {
           ))}
         </motion.div>
 
-        <motion.div variants={itemVariants} className="text-center mb-12">
+        <motion.div variants={itemVariants} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-main mb-4 tracking-tight">
             Nuestros <span className="gradient-text">Pilares Fundamentales</span>
           </h2>
@@ -194,28 +194,56 @@ const About = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={sectionVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-        >
-          {values.map((value, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.03, y: -8, boxShadow: "0 15px 30px rgba(212, 175, 55, 0.25)" }}
-              className="text-center glass-effect rounded-xl p-6 subtle-shine h-full flex flex-col"
-            >
+        {/* Timeline horizontal en desktop, vertical en mobile */}
+        <div className="relative">
+          {/* Línea conectora - horizontal en desktop, vertical en mobile */}
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-highlight/40 to-transparent transform -translate-y-1/2" />
+          <div className="lg:hidden absolute top-0 bottom-0 left-8 w-0.5 bg-gradient-to-b from-transparent via-highlight/40 to-transparent" />
+
+          <div className="lg:flex lg:justify-between lg:items-center space-y-12 lg:space-y-0">
+            {values.map((value, index) => (
               <motion.div
-                whileHover={{ scale: 1.15, rotate: -5 }}
-                className="w-16 h-16 bg-gold-gradient rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg"
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className={`relative flex lg:flex-col items-start lg:items-center lg:text-center lg:w-1/4 ${
+                  index % 2 === 0 ? 'lg:pt-0' : 'lg:pt-0'
+                }`}
               >
-                <value.icon className="w-8 h-8 text-primary" />
+                {/* Icono con animación */}
+                <motion.div
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative z-10 flex-shrink-0"
+                >
+                  <div className="w-16 h-16 bg-gold-gradient rounded-2xl flex items-center justify-center shadow-xl">
+                    <value.icon className="w-8 h-8 text-primary" />
+                  </div>
+                  {/* Número del pilar */}
+                  <motion.span
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.15 + 0.3 }}
+                    viewport={{ once: true }}
+                    className="absolute -top-2 -right-2 w-6 h-6 bg-highlight text-white text-xs font-bold rounded-full flex items-center justify-center shadow-md"
+                  >
+                    {index + 1}
+                  </motion.span>
+                </motion.div>
+
+                {/* Contenido */}
+                <div className="ml-6 lg:ml-0 lg:mt-6 flex-1">
+                  <h3 className="text-lg font-bold text-highlight mb-2">{value.title}</h3>
+                  <p className="text-subtle text-sm leading-relaxed max-w-[200px] lg:max-w-none">
+                    {value.description}
+                  </p>
+                </div>
               </motion.div>
-              <h3 className="text-xl font-bold text-main mb-3">{value.title}</h3>
-              <p className="text-subtle text-sm leading-relaxed flex-grow">{value.description}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </motion.section>
   );

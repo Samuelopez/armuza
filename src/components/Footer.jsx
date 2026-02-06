@@ -34,11 +34,11 @@ const Footer = () => {
   ];
 
   const services = [
-    'Metal & Forja Arquitectónica',
-    'Carpintería de Diseño',
-    'Tablaroca & Acabados',
-    'Impermeabilización',
-    'Remodelación Integral',
+    { id: 'metal', label: 'Metal & Forja Arquitectónica' },
+    { id: 'carpinteria', label: 'Carpintería de Diseño' },
+    { id: 'tablaroca', label: 'Tablaroca & Acabados' },
+    { id: 'impermeabilizacion', label: 'Impermeabilización' },
+    { id: 'remodelacion', label: 'Remodelación Integral' },
   ];
 
   return (
@@ -149,21 +149,25 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <motion.li
-                  key={index}
+                  key={service.id}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
                   viewport={{ once: true }}
-                  className="text-subtle hover:text-accent transition-colors duration-300 cursor-default hover:translate-x-1 transform flex items-center group text-sm"
                 >
-                  <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
-                  {service}
+                  <Link
+                    href={`/catalogo?servicio=${service.id}`}
+                    className="text-subtle hover:text-highlight transition-colors duration-300 cursor-pointer hover:translate-x-1 transform flex items-center group text-sm"
+                  >
+                    <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
+                    {service.label}
+                  </Link>
                 </motion.li>
               ))}
               <motion.li
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
                 <Link href="/catalogo" className="text-highlight hover:text-highlight/80 font-bold transition-colors duration-300 flex items-center group text-sm">

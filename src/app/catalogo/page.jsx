@@ -2,8 +2,13 @@
 
 import CatalogPage from '@/components/CatalogContent';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-export default function Catalogo() {
+function CatalogoContent() {
+  const searchParams = useSearchParams();
+  const servicioInicial = searchParams.get('servicio');
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -11,7 +16,15 @@ export default function Catalogo() {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
     >
-      <CatalogPage />
+      <CatalogPage servicioInicial={servicioInicial} />
     </motion.div>
+  );
+}
+
+export default function Catalogo() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-main" />}>
+      <CatalogoContent />
+    </Suspense>
   );
 }

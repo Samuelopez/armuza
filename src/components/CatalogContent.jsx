@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Briefcase,
@@ -22,9 +22,17 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-const CatalogContent = () => {
-  const [activeCategory, setActiveCategory] = useState('metal');
+const CatalogContent = ({ servicioInicial }) => {
+  const [activeCategory, setActiveCategory] = useState(servicioInicial || 'metal');
   const [activeSubcategory, setActiveSubcategory] = useState(null);
+
+  // Actualizar categoría si cambia el parámetro de URL
+  useEffect(() => {
+    if (servicioInicial) {
+      setActiveCategory(servicioInicial);
+      setActiveSubcategory(null);
+    }
+  }, [servicioInicial]);
 
   const categories = [
     {
@@ -562,25 +570,52 @@ const CatalogContent = () => {
   };
 
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
     visible: {
       opacity: 1,
+      y: 0,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+        staggerChildren: 0.07,
+        delayChildren: 0.15
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn"
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    hidden: {
+      opacity: 0,
+      y: 40,
+      scale: 0.9,
+      rotateX: 15
+    },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
+      rotateX: 0,
       transition: {
-        duration: 0.4,
-        ease: "easeOut"
+        duration: 0.5,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.2
       }
     }
   };
@@ -649,28 +684,59 @@ const CatalogContent = () => {
           {currentCategory?.subcategories && (
             <motion.div
               key={`subcats-${activeCategory}`}
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="flex flex-wrap justify-center gap-2 mb-8"
             >
-              {currentCategory.subcategories.map((subcat) => {
+              {currentCategory.subcategories.map((subcat, index) => {
                 const SubIcon = subcat.icon;
+                const isActive = (activeSubcategory || currentCategory.subcategories[0]?.id) === subcat.id;
                 return (
                   <motion.button
                     key={subcat.id}
                     onClick={() => setActiveSubcategory(subcat.id)}
-                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{
+                      duration: 0.35,
+                      delay: index * 0.06,
+                      ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    whileHover={{
+                      scale: 1.08,
+                      y: -2,
+                      transition: { duration: 0.2 }
+                    }}
                     whileTap={{ scale: 0.95 }}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300
-                      ${(activeSubcategory || currentCategory.subcategories[0]?.id) === subcat.id
-                        ? 'bg-accent/20 text-highlight border border-highlight'
-                        : 'bg-card/50 text-subtle hover:text-main hover:bg-card border border-transparent'
+                    className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-colors duration-300
+                      ${isActive
+                        ? 'text-highlight'
+                        : 'text-subtle hover:text-main'
                       }`}
                   >
-                    <SubIcon className="w-4 h-4" />
-                    {subcat.name}
+                    {/* Fondo animado que se mueve entre botones */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="subcategoryActiveBackground"
+                        className="absolute inset-0 bg-accent/20 border border-highlight rounded-lg shadow-md"
+                        initial={false}
+                        transition={{
+                          type: "spring",
+                          stiffness: 400,
+                          damping: 30
+                        }}
+                      />
+                    )}
+                    <motion.span
+                      className="relative z-10"
+                      animate={{ rotate: isActive ? [0, -10, 10, 0] : 0 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <SubIcon className="w-4 h-4" />
+                    </motion.span>
+                    <span className="relative z-10">{subcat.name}</span>
                   </motion.button>
                 );
               })}
@@ -701,16 +767,18 @@ const CatalogContent = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={`${activeCategory}-${activeSubcategory}`}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -30, scale: 0.98 }}
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {displayItems.map((item, index) => (
               <motion.div
                 key={`${item.name}-${index}`}
-                variants={itemVariants}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="glass-effect rounded-2xl overflow-hidden shadow-lg group metallic-border"
               >

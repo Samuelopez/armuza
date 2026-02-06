@@ -51,13 +51,17 @@ export default function AboutPage() {
         </div>
       </header>
       <About />
+      {/* TODO: Habilitar cuando estén listos los datos del equipo
       <TeamSection />
+      */}
+      {/* TODO: Habilitar sección de CTA
       <CTASection
         title="¿Inspirado por Nuestra Historia?"
         subtitle="Únete a la familia ARMUZA y hagamos realidad tus sueños de diseño."
         buttonText="Contáctanos Ahora"
         buttonLink="/contacto"
       />
+      */}
     </motion.div>
   );
 }

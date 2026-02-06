@@ -21,30 +21,35 @@ const ServicesPreview = () => {
 
   const services = [
     {
+      id: 'metal',
       icon: Hammer,
       title: 'Metal & Forja Arquitectónica',
       description: 'Estructuras metálicas de diseño exclusivo. Portones, barandales, escaleras y pérgolas con acabados premium.',
       imgUrl: "/img/servicios/metal-forja.png"
     },
     {
+      id: 'carpinteria',
       icon: Sofa,
       title: 'Carpintería de Diseño',
       description: 'Muebles por catálogo fabricados con materiales premium. Escritorios, cocinas, closets y más.',
       imgUrl: "/img/servicios/muebles.png"
     },
     {
+      id: 'tablaroca',
       icon: Layers,
       title: 'Tablaroca & Acabados',
       description: 'Instalación profesional de drywall con 5 niveles de acabado. Divisiones y plafones de alta calidad.',
       imgUrl: "/img/servicios/tablaroca.png"
     },
     {
+      id: 'impermeabilizacion',
       icon: Droplets,
       title: 'Impermeabilización Profesional',
       description: 'Protección total contra filtraciones. Sistemas acrílicos y membranas prefabricadas con garantía.',
       imgUrl: "/img/servicios/impermeabilizacion.png"
     },
     {
+      id: 'remodelacion',
       icon: Home,
       title: 'Remodelación Integral',
       description: 'Transformamos cualquier espacio. Baños, cocinas, recámaras y proyectos comerciales completos.',
@@ -189,41 +194,42 @@ const ServicesPreview = () => {
                 ${isMobile ? 'grid-cols-1' : 'grid-cols-2 lg:grid-cols-5'}`}
             >
               {getCurrentServices().map((service, index) => (
-                <motion.div
-                  key={service.title}
-                  variants={cardVariants}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="glass-effect rounded-2xl p-0 metallic-border subtle-shine group overflow-hidden flex flex-col"
-                >
-                  <div className="relative h-40 w-full">
-                    <img
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                      src={service.imgUrl}
-                      onError={(e) => {
-                        e.target.src = `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60`;
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
-                    <motion.div
-                      variants={iconContainerVariants}
-                      initial="rest"
-                      whileHover="hover"
-                      className="absolute top-3 right-3 w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center shadow-lg group-hover:pulse-glow"
-                    >
-                      <service.icon className="w-5 h-5 text-primary" />
-                    </motion.div>
-                  </div>
+                <Link key={service.title} href={`/catalogo?servicio=${service.id}`}>
+                  <motion.div
+                    variants={cardVariants}
+                    whileHover={{ y: -10, scale: 1.02 }}
+                    className="glass-effect rounded-2xl p-0 subtle-shine group overflow-hidden flex flex-col cursor-pointer h-full"
+                  >
+                    <div className="relative h-40 w-full">
+                      <img
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                        src={service.imgUrl}
+                        onError={(e) => {
+                          e.target.src = `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60`;
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
+                      <motion.div
+                        variants={iconContainerVariants}
+                        initial="rest"
+                        whileHover="hover"
+                        className="absolute top-3 right-3 w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center shadow-lg group-hover:pulse-glow"
+                      >
+                        <service.icon className="w-5 h-5 text-primary" />
+                      </motion.div>
+                    </div>
 
-                  <div className="p-4 flex flex-col flex-grow">
-                    <h3 className="text-base font-bold text-main mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-subtle leading-relaxed text-xs line-clamp-3">
-                      {service.description}
-                    </p>
-                  </div>
-                </motion.div>
+                    <div className="p-4 flex flex-col flex-grow">
+                      <h3 className="text-base font-bold text-main mb-2 group-hover:text-highlight transition-colors duration-300 line-clamp-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-subtle leading-relaxed text-xs line-clamp-3 group-hover:text-main transition-colors duration-300">
+                        {service.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
               ))}
             </motion.div>
           </AnimatePresence>
@@ -256,7 +262,7 @@ const ServicesPreview = () => {
           <Button
             asChild
             size="lg"
-            className="bg-transparent border-2 border-accent text-accent hover:bg-gold-gradient hover:text-primary hover:border-transparent hover:scale-105 transition-all duration-300 px-10 py-6 text-lg font-semibold shadow-lg"
+            className="bg-transparent border-2 border-highlight text-highlight hover:bg-highlight hover:text-white hover:border-highlight hover:scale-105 transition-all duration-300 px-10 py-6 text-lg font-semibold shadow-lg"
           >
             <Link href="/catalogo">Explorar Catálogo Completo</Link>
           </Button>
