@@ -649,32 +649,28 @@ const CatalogContent = () => {
           {currentCategory?.subcategories && (
             <motion.div
               key={`subcats-${activeCategory}`}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="flex flex-wrap justify-center gap-3 mb-8"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-wrap justify-center gap-2 mb-8"
             >
-              {currentCategory.subcategories.map((subcat, index) => {
+              {currentCategory.subcategories.map((subcat) => {
                 const SubIcon = subcat.icon;
-                const isActive = (activeSubcategory || currentCategory.subcategories[0]?.id) === subcat.id;
                 return (
                   <motion.button
                     key={subcat.id}
                     onClick={() => setActiveSubcategory(subcat.id)}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    whileHover={{ scale: 1.05, y: -3, boxShadow: "0 8px 25px rgba(133, 73, 55, 0.25)" }}
-                    whileTap={{ scale: 0.97 }}
-                    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm
-                      ${isActive
-                        ? 'bg-gold-gradient text-primary shadow-lg ring-2 ring-[#854937]/30'
-                        : 'bg-card text-main hover:bg-card/90 border border-[#edcab6] hover:border-[#854937]/50'
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-300
+                      ${(activeSubcategory || currentCategory.subcategories[0]?.id) === subcat.id
+                        ? 'bg-accent/20 text-accent border border-accent'
+                        : 'bg-card/50 text-subtle hover:text-main hover:bg-card border border-transparent'
                       }`}
                   >
-                    <SubIcon className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'scale-110' : ''}`} />
-                    <span className={isActive ? 'font-semibold' : ''}>{subcat.name}</span>
+                    <SubIcon className="w-4 h-4" />
+                    {subcat.name}
                   </motion.button>
                 );
               })}
