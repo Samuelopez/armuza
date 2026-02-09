@@ -2803,6 +2803,19 @@ const ProductDetail = ({ productId }) => {
     apiKey: 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImUwYTBiZjQyZTE0NDRmMjVhMGE4OGZkY2I1ZmNlNWQwIiwiaCI6Im11cm11cjY0In0='
   };
 
+  // Función para calcular distancia en línea recta (Haversine)
+  const calculateHaversineDistance = (lat1, lon1, lat2, lon2) => {
+    const R = 6371; // Radio de la Tierra en km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
   const calculateShipping = async () => {
     if (!shippingAddress.trim()) return;
 
@@ -2810,8 +2823,17 @@ const ProductDetail = ({ productId }) => {
     setShippingResult(null);
 
     try {
+      // Preparar la búsqueda - agregar contexto para México
+      let searchText = shippingAddress.trim();
+      // Si es solo un código postal, agregar contexto
+      if (/^\d{5}$/.test(searchText)) {
+        searchText = `CP ${searchText}, México`;
+      } else if (!searchText.toLowerCase().includes('méxico') && !searchText.toLowerCase().includes('mexico')) {
+        searchText = `${searchText}, México`;
+      }
+
       // Paso 1: Geocodificar la dirección del cliente
-      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(shippingAddress + ', México')}&boundary.country=MX`;
+      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&size=1`;
 
       const geocodeResponse = await fetch(geocodeUrl);
       const geocodeData = await geocodeResponse.json();
@@ -2819,33 +2841,45 @@ const ProductDetail = ({ productId }) => {
       if (!geocodeData.features || geocodeData.features.length === 0) {
         setShippingResult({
           success: false,
-          error: 'No pudimos encontrar esa dirección. Intenta con código postal o sé más específico.'
+          error: 'No pudimos encontrar esa dirección. Intenta escribir tu colonia y ciudad, ej: "Roma Norte, CDMX"'
         });
         setCalculatingShipping(false);
         return;
       }
 
-      const destCoords = geocodeData.features[0].geometry.coordinates;
+      const destCoords = geocodeData.features[0].geometry.coordinates; // [lon, lat]
       const destName = geocodeData.features[0].properties.label;
 
-      // Paso 2: Calcular distancia y ruta
-      const directionsUrl = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${SHIPPING_CONFIG.apiKey}&start=${SHIPPING_CONFIG.originCoords[0]},${SHIPPING_CONFIG.originCoords[1]}&end=${destCoords[0]},${destCoords[1]}`;
+      // Paso 2: Intentar calcular ruta, si falla usar distancia en línea recta
+      let distanceKm;
+      let durationMinutes;
+      let usesStraightLine = false;
 
-      const directionsResponse = await fetch(directionsUrl);
-      const directionsData = await directionsResponse.json();
+      try {
+        const directionsUrl = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${SHIPPING_CONFIG.apiKey}&start=${SHIPPING_CONFIG.originCoords[0]},${SHIPPING_CONFIG.originCoords[1]}&end=${destCoords[0]},${destCoords[1]}`;
 
-      if (!directionsData.features || directionsData.features.length === 0) {
-        setShippingResult({
-          success: false,
-          error: 'No pudimos calcular la ruta. Intenta con otra dirección.'
-        });
-        setCalculatingShipping(false);
-        return;
+        const directionsResponse = await fetch(directionsUrl);
+        const directionsData = await directionsResponse.json();
+
+        if (directionsData.features && directionsData.features.length > 0) {
+          const distanceMeters = directionsData.features[0].properties.segments[0].distance;
+          distanceKm = distanceMeters / 1000;
+          durationMinutes = Math.round(directionsData.features[0].properties.segments[0].duration / 60);
+        } else {
+          throw new Error('No route found');
+        }
+      } catch (routeError) {
+        // Fallback: calcular distancia en línea recta y agregar 30% por carretera
+        const straightDistance = calculateHaversineDistance(
+          SHIPPING_CONFIG.originCoords[1], // lat origen
+          SHIPPING_CONFIG.originCoords[0], // lon origen
+          destCoords[1], // lat destino
+          destCoords[0]  // lon destino
+        );
+        distanceKm = straightDistance * 1.3; // Agregar 30% para aproximar distancia real
+        durationMinutes = Math.round(distanceKm * 1.5); // Aproximar tiempo (40 km/h promedio)
+        usesStraightLine = true;
       }
-
-      const distanceMeters = directionsData.features[0].properties.segments[0].distance;
-      const distanceKm = distanceMeters / 1000;
-      const durationMinutes = Math.round(directionsData.features[0].properties.segments[0].duration / 60);
 
       // Paso 3: Verificar si está en zona
       if (distanceKm > SHIPPING_CONFIG.maxDistance) {
@@ -2865,14 +2899,15 @@ const ProductDetail = ({ productId }) => {
           distance: distanceKm.toFixed(1),
           duration: durationMinutes,
           cost: shippingCost,
-          location: destName
+          location: destName,
+          approximate: usesStraightLine
         });
       }
     } catch (error) {
       console.error('Error calculando envío:', error);
       setShippingResult({
         success: false,
-        error: 'Hubo un error al calcular el envío. Intenta de nuevo.'
+        error: 'Hubo un error al calcular el envío. Intenta con tu colonia y ciudad, ej: "Condesa, Ciudad de México"'
       });
     }
 
@@ -3295,10 +3330,11 @@ const ProductDetail = ({ productId }) => {
                         Ubicación: {shippingResult.location}
                       </p>
                       <p className="text-sm text-subtle mb-3">
-                        Distancia: {shippingResult.distance} km (~{shippingResult.duration} min)
+                        Distancia: ~{shippingResult.distance} km (~{shippingResult.duration} min)
+                        {shippingResult.approximate && <span className="text-xs text-amber-500 ml-1">(aprox.)</span>}
                       </p>
                       <div className="bg-card rounded-lg p-3 mb-4">
-                        <p className="text-sm text-subtle">Costo de envío:</p>
+                        <p className="text-sm text-subtle">Costo de envío{shippingResult.approximate ? ' estimado' : ''}:</p>
                         <p className="text-2xl font-bold text-highlight">${shippingResult.cost} MXN</p>
                       </div>
                       <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&envio=${shippingResult.cost}&distancia=${shippingResult.distance}`}>
