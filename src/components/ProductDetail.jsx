@@ -9,7 +9,12 @@ import {
   Check,
   Truck,
   Shield,
-  MessageCircle
+  MessageCircle,
+  X,
+  MapPin,
+  Loader2,
+  AlertCircle,
+  CheckCircle2
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -2761,6 +2766,10 @@ const ProductDetail = ({ productId }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedColor, setSelectedColor] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [showShippingModal, setShowShippingModal] = useState(false);
+  const [shippingAddress, setShippingAddress] = useState('');
+  const [shippingResult, setShippingResult] = useState(null);
+  const [calculatingShipping, setCalculatingShipping] = useState(false);
 
   useEffect(() => {
     // Buscar producto por ID
@@ -2783,6 +2792,97 @@ const ProductDetail = ({ productId }) => {
     if (product) {
       setActiveImage((prev) => (prev - 1 + product.gallery.length) % product.gallery.length);
     }
+  };
+
+  // Configuración de envío
+  const SHIPPING_CONFIG = {
+    originCoords: [-99.5336, 19.2686], // San Mateo Atenco, Estado de México
+    maxDistance: 80, // km
+    gasPrice: 25, // pesos por litro
+    carEfficiency: 6, // km por litro
+    apiKey: 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImUwYTBiZjQyZTE0NDRmMjVhMGE4OGZkY2I1ZmNlNWQwIiwiaCI6Im11cm11cjY0In0='
+  };
+
+  const calculateShipping = async () => {
+    if (!shippingAddress.trim()) return;
+
+    setCalculatingShipping(true);
+    setShippingResult(null);
+
+    try {
+      // Paso 1: Geocodificar la dirección del cliente
+      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(shippingAddress + ', México')}&boundary.country=MX`;
+
+      const geocodeResponse = await fetch(geocodeUrl);
+      const geocodeData = await geocodeResponse.json();
+
+      if (!geocodeData.features || geocodeData.features.length === 0) {
+        setShippingResult({
+          success: false,
+          error: 'No pudimos encontrar esa dirección. Intenta con código postal o sé más específico.'
+        });
+        setCalculatingShipping(false);
+        return;
+      }
+
+      const destCoords = geocodeData.features[0].geometry.coordinates;
+      const destName = geocodeData.features[0].properties.label;
+
+      // Paso 2: Calcular distancia y ruta
+      const directionsUrl = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${SHIPPING_CONFIG.apiKey}&start=${SHIPPING_CONFIG.originCoords[0]},${SHIPPING_CONFIG.originCoords[1]}&end=${destCoords[0]},${destCoords[1]}`;
+
+      const directionsResponse = await fetch(directionsUrl);
+      const directionsData = await directionsResponse.json();
+
+      if (!directionsData.features || directionsData.features.length === 0) {
+        setShippingResult({
+          success: false,
+          error: 'No pudimos calcular la ruta. Intenta con otra dirección.'
+        });
+        setCalculatingShipping(false);
+        return;
+      }
+
+      const distanceMeters = directionsData.features[0].properties.segments[0].distance;
+      const distanceKm = distanceMeters / 1000;
+      const durationMinutes = Math.round(directionsData.features[0].properties.segments[0].duration / 60);
+
+      // Paso 3: Verificar si está en zona
+      if (distanceKm > SHIPPING_CONFIG.maxDistance) {
+        setShippingResult({
+          success: false,
+          outOfZone: true,
+          distance: distanceKm.toFixed(1),
+          location: destName
+        });
+      } else {
+        // Calcular costo: (km / rendimiento) * precio_gasolina * 2 (ida y vuelta)
+        const litersNeeded = (distanceKm * 2) / SHIPPING_CONFIG.carEfficiency;
+        const shippingCost = Math.ceil(litersNeeded * SHIPPING_CONFIG.gasPrice);
+
+        setShippingResult({
+          success: true,
+          distance: distanceKm.toFixed(1),
+          duration: durationMinutes,
+          cost: shippingCost,
+          location: destName
+        });
+      }
+    } catch (error) {
+      console.error('Error calculando envío:', error);
+      setShippingResult({
+        success: false,
+        error: 'Hubo un error al calcular el envío. Intenta de nuevo.'
+      });
+    }
+
+    setCalculatingShipping(false);
+  };
+
+  const resetShippingModal = () => {
+    setShowShippingModal(false);
+    setShippingAddress('');
+    setShippingResult(null);
   };
 
   if (loading) {
@@ -3016,16 +3116,15 @@ const ProductDetail = ({ productId }) => {
               </div>
             </div>
 
-            {/* Botón de Cotización */}
-            <Link href={`/contacto?servicio=${product.category}&producto=${product.name}`}>
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gold-gradient text-primary py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all mb-4"
-              >
-                Solicitar Cotización
-              </motion.button>
-            </Link>
+            {/* Botón de Comprar */}
+            <motion.button
+              onClick={() => setShowShippingModal(true)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full bg-gold-gradient text-primary py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all mb-4"
+            >
+              Comprar
+            </motion.button>
 
             {/* Info adicional */}
             <div className="flex items-center justify-center gap-2 text-sm text-subtle">
@@ -3089,6 +3188,171 @@ const ProductDetail = ({ productId }) => {
           </Link>
         </motion.div>
       </div>
+
+      {/* Modal de Cálculo de Envío */}
+      <AnimatePresence>
+        {showShippingModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            onClick={resetShippingModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-card rounded-2xl max-w-md w-full p-6 md:p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header del modal */}
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold text-main">Calcular Envío</h2>
+                <button
+                  onClick={resetShippingModal}
+                  className="text-subtle hover:text-main transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Producto seleccionado */}
+              <div className="bg-secondary/30 rounded-xl p-4 mb-6 flex gap-4">
+                <img
+                  src={product.gallery[0]}
+                  alt={product.name}
+                  className="w-20 h-20 object-cover rounded-lg"
+                />
+                <div>
+                  <h3 className="font-semibold text-main text-sm">{product.name}</h3>
+                  <p className="text-highlight font-bold">{product.price}</p>
+                </div>
+              </div>
+
+              {/* Input de dirección */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-main mb-2">
+                  ¿A dónde enviamos tu mueble?
+                </label>
+                <div className="relative">
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-subtle" />
+                  <input
+                    type="text"
+                    value={shippingAddress}
+                    onChange={(e) => setShippingAddress(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && calculateShipping()}
+                    placeholder="Código postal o dirección"
+                    className="w-full pl-10 pr-4 py-3 bg-secondary border border-border rounded-xl text-main placeholder:text-subtle focus:outline-none focus:border-highlight transition-colors"
+                  />
+                </div>
+                <p className="text-xs text-subtle mt-2">
+                  Ejemplo: 50000 o Toluca, Estado de México
+                </p>
+              </div>
+
+              {/* Botón calcular */}
+              <motion.button
+                onClick={calculateShipping}
+                disabled={calculatingShipping || !shippingAddress.trim()}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-highlight text-white py-3 rounded-xl font-semibold mb-4 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {calculatingShipping ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Calculando...
+                  </>
+                ) : (
+                  <>
+                    <Truck className="w-5 h-5" />
+                    Calcular Envío
+                  </>
+                )}
+              </motion.button>
+
+              {/* Resultado */}
+              {shippingResult && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`rounded-xl p-4 ${
+                    shippingResult.success
+                      ? 'bg-green-500/10 border border-green-500/30'
+                      : shippingResult.outOfZone
+                      ? 'bg-amber-500/10 border border-amber-500/30'
+                      : 'bg-red-500/10 border border-red-500/30'
+                  }`}
+                >
+                  {shippingResult.success ? (
+                    <>
+                      <div className="flex items-center gap-2 mb-3">
+                        <CheckCircle2 className="w-5 h-5 text-green-500" />
+                        <span className="font-semibold text-green-500">¡Sí entregamos en tu zona!</span>
+                      </div>
+                      <p className="text-sm text-subtle mb-1">
+                        Ubicación: {shippingResult.location}
+                      </p>
+                      <p className="text-sm text-subtle mb-3">
+                        Distancia: {shippingResult.distance} km (~{shippingResult.duration} min)
+                      </p>
+                      <div className="bg-card rounded-lg p-3 mb-4">
+                        <p className="text-sm text-subtle">Costo de envío:</p>
+                        <p className="text-2xl font-bold text-highlight">${shippingResult.cost} MXN</p>
+                      </div>
+                      <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&envio=${shippingResult.cost}&distancia=${shippingResult.distance}`}>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full bg-gold-gradient text-primary py-3 rounded-xl font-bold"
+                        >
+                          Continuar con la Compra
+                        </motion.button>
+                      </Link>
+                    </>
+                  ) : shippingResult.outOfZone ? (
+                    <>
+                      <div className="flex items-center gap-2 mb-3">
+                        <AlertCircle className="w-5 h-5 text-amber-500" />
+                        <span className="font-semibold text-amber-500">Fuera de zona de entrega</span>
+                      </div>
+                      <p className="text-sm text-subtle mb-1">
+                        Ubicación: {shippingResult.location}
+                      </p>
+                      <p className="text-sm text-subtle mb-3">
+                        Tu ubicación está a {shippingResult.distance} km. Nuestro límite de entrega es de {SHIPPING_CONFIG.maxDistance} km.
+                      </p>
+                      <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&mensaje=Estoy fuera de zona (${shippingResult.distance}km), solicito cotización especial`}>
+                        <motion.button
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full bg-amber-500 text-white py-3 rounded-xl font-semibold"
+                        >
+                          Solicitar Cotización Especial
+                        </motion.button>
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-2 mb-2">
+                        <AlertCircle className="w-5 h-5 text-red-500" />
+                        <span className="font-semibold text-red-500">Error</span>
+                      </div>
+                      <p className="text-sm text-subtle">{shippingResult.error}</p>
+                    </>
+                  )}
+                </motion.div>
+              )}
+
+              {/* Info adicional */}
+              <p className="text-xs text-subtle text-center mt-4">
+                Entregamos en un radio de {SHIPPING_CONFIG.maxDistance} km desde San Mateo Atenco, Estado de México
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
