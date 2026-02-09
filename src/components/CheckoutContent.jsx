@@ -169,7 +169,7 @@ const CheckoutContent = () => {
   if (orderComplete) {
     return (
       <div className="min-h-screen pt-14 md:pt-20 bg-main">
-        <div className="max-w-2xl mx-auto px-4 py-8 md:py-12">
+        <div className="max-w-2xl mx-auto px-4 py-2 md:py-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
