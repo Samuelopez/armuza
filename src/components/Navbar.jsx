@@ -63,7 +63,7 @@ const Navbar = () => {
           >
             <Link href="/" className="flex items-center space-x-2 group">
               <img
-                src="/img/logo.png"
+                src="/img/logo.webp"
                 alt="ARMUZA Logo"
                 width={32}
                 height={32}

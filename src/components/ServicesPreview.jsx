@@ -30,7 +30,7 @@ const ServicesPreview = () => {
       icon: Sofa,
       title: 'Muebles para tu Hogar',
       description: 'Muebles de alta calidad para sala, comedor, recámara y más. Diseños estándar y personalizados.',
-      imgUrl: "/img/servicios/muebles.png",
+      imgUrl: "/img/servicios/muebles.webp",
       type: 'producto'
     },
     {
@@ -38,7 +38,7 @@ const ServicesPreview = () => {
       icon: Hammer,
       title: 'Metal & Forja Arquitectónica',
       description: 'Portones, barandales, escaleras y pérgolas con diseño exclusivo y acabados premium.',
-      imgUrl: "/img/metal/pergola.png",
+      imgUrl: "/img/metal/pergola.webp",
       type: 'servicio'
     },
     {
@@ -46,7 +46,7 @@ const ServicesPreview = () => {
       icon: Layers,
       title: 'Tablaroca & Acabados',
       description: 'Instalación profesional de drywall con 5 niveles de acabado. Divisiones y plafones.',
-      imgUrl: "/img/tablaroca/tablaroca.png",
+      imgUrl: "/img/tablaroca/tablaroca.webp",
       type: 'servicio'
     },
     {
@@ -54,7 +54,7 @@ const ServicesPreview = () => {
       icon: Droplets,
       title: 'Impermeabilización',
       description: 'Protección total contra filtraciones. Sistemas acrílicos y membranas con garantía.',
-      imgUrl: "/img/servicios/impermeabilizacion.png",
+      imgUrl: "/img/servicios/impermeabilizacion.webp",
       type: 'servicio'
     },
     {
@@ -62,7 +62,7 @@ const ServicesPreview = () => {
       icon: Home,
       title: 'Remodelación Integral',
       description: 'Transformamos cualquier espacio. Baños, cocinas, recámaras y proyectos comerciales.',
-      imgUrl: "/img/servicios/remodelacion.png",
+      imgUrl: "/img/servicios/remodelacion.webp",
       type: 'servicio'
     }
   ];

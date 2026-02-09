@@ -16,7 +16,7 @@ export const metadata = {
     siteName: 'ARMUZA',
     images: [
       {
-        url: '/img/logometadata.png', // Crear imagen 1200x630 con logo y fondo #995944
+        url: '/img/logometadata.webp', // Crear imagen 1200x630 con logo y fondo #995944
         width: 1200,
         height: 630,
         alt: 'ARMUZA - Remodelación y Diseño de Interiores',
@@ -29,12 +29,12 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'ARMUZA | Remodelación y Diseño de Interiores',
     description: 'Expertos en remodelación, carpintería de diseño, herrería arquitectónica, tablaroca e impermeabilización.',
-    images: ['/img/logometadata.png'],
+    images: ['/img/logometadata.webp'],
   },
   themeColor: '#995944',
   icons: {
-    icon: '/img/logo.png',
-    apple: '/img/logo.png',
+    icon: '/img/logo.webp',
+    apple: '/img/logo.webp',
   },
 };
 

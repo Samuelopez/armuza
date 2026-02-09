@@ -11,12 +11,12 @@ const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const serviceImages = [
-    '/img/servicios/remodelacion.png',
-    '/img/servicios/cocina.png',
-    '/img/servicios/muebles.png',
-    '/img/servicios/impermeabilizacion.png',
-    '/img/servicios/muebles2.png',
-    '/img/servicios/impermeabilizacion1.png'
+    '/img/servicios/remodelacion.webp',
+    '/img/servicios/cocina.webp',
+    '/img/servicios/muebles.webp',
+    '/img/servicios/impermeabilizacion.webp',
+    '/img/servicios/muebles2.webp',
+    '/img/servicios/impermeabilizacion1.webp'
   ];
 
   useEffect(() => {
@@ -103,7 +103,7 @@ const Hero = () => {
         >
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
             <img
-              src="/img/logo.png"
+              src="/img/logo.webp"
               alt="Logo ARMUZA"
               width={96}
               height={96}

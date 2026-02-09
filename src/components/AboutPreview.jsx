@@ -32,7 +32,7 @@ const AboutPreview = () => {
             <img
               className="w-full h-auto max-h-[550px] object-cover rounded-xl"
               alt="Equipo ARMUZA colaborando en un proyecto de diseño de interiores, con planos y muestras de materiales"
-              src="/img/3años.png"
+              src="/img/3años.webp"
               width={800}
               height={550}
               loading="lazy"

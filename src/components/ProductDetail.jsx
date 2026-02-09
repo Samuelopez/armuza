@@ -50,10 +50,10 @@ const allProducts = {
       { name: 'Verde Olivo', hex: '#556b2f' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/servicios/muebles2.png',
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/cocina.png'
+      '/img/servicios/muebles.webp',
+      '/img/servicios/muebles2.webp',
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/cocina.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -84,9 +84,9 @@ const allProducts = {
       { name: 'Crema', hex: '#f5f5dc' }
     ],
     gallery: [
-      '/img/servicios/muebles2.png',
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles2.webp',
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '4-5 semanas'
   },
@@ -117,9 +117,9 @@ const allProducts = {
       { name: 'Gris Oscuro', hex: '#363636' }
     ],
     gallery: [
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles.png',
-      '/img/metal/servicio-metal.png'
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles.webp',
+      '/img/metal/servicio-metal.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -149,9 +149,9 @@ const allProducts = {
       { name: 'Blanco Vintage', hex: '#f5f5f0' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles2.png'
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles2.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -182,10 +182,10 @@ const allProducts = {
       { name: 'Roble Claro', hex: '#c4a35a' }
     ],
     gallery: [
-      '/img/servicios/muebles2.png',
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/cocina.png'
+      '/img/servicios/muebles2.webp',
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/cocina.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -216,9 +216,9 @@ const allProducts = {
       { name: 'Wengue', hex: '#3d2b1f' }
     ],
     gallery: [
-      '/img/servicios/cocina.png',
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles.png'
+      '/img/servicios/cocina.webp',
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -250,9 +250,9 @@ const allProducts = {
       { name: 'Blanco', hex: '#ffffff' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/servicios/muebles2.png',
-      '/img/remodelacion-integral/remodelacion-integral.png'
+      '/img/servicios/muebles.webp',
+      '/img/servicios/muebles2.webp',
+      '/img/remodelacion-integral/remodelacion-integral.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -283,9 +283,9 @@ const allProducts = {
       { name: 'Azul Petróleo', hex: '#1e5f74' }
     ],
     gallery: [
-      '/img/servicios/muebles2.png',
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles2.webp',
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -317,10 +317,10 @@ const allProducts = {
       { name: 'Madera Natural', hex: '#deb887' }
     ],
     gallery: [
-      '/img/servicios/cocina.png',
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles.png',
-      '/img/servicios/muebles2.png'
+      '/img/servicios/cocina.webp',
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles.webp',
+      '/img/servicios/muebles2.webp'
     ],
     deliveryTime: '6-8 semanas',
     isPaquete: true
@@ -420,9 +420,9 @@ const allProducts = {
       { name: 'Madera Clara', hex: '#c4a35a' }
     ],
     gallery: [
-      '/img/remodelacion-integral/remodelacion-integral.png',
-      '/img/servicios/remodelacion.png',
-      '/img/servicios/muebles.png'
+      '/img/remodelacion-integral/remodelacion-integral.webp',
+      '/img/servicios/remodelacion.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '4-5 semanas',
     isPaquete: true
@@ -453,8 +453,8 @@ const allProducts = {
       { name: 'Nogal', hex: '#5c4033' }
     ],
     gallery: [
-      '/img/remodelacion-integral/remodelacion-integral.png',
-      '/img/servicios/remodelacion.png'
+      '/img/remodelacion-integral/remodelacion-integral.webp',
+      '/img/servicios/remodelacion.webp'
     ],
     deliveryTime: '3-4 semanas',
     isPaquete: true
@@ -487,9 +487,9 @@ const allProducts = {
       { name: 'Madera Roble', hex: '#c4a35a' }
     ],
     gallery: [
-      '/img/remodelacion-integral/remodelacion-integral.png',
-      '/img/servicios/remodelacion.png',
-      '/img/servicios/muebles.png'
+      '/img/remodelacion-integral/remodelacion-integral.webp',
+      '/img/servicios/remodelacion.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '5-6 semanas',
     isPaquete: true
@@ -522,10 +522,10 @@ const allProducts = {
       { name: 'Roble Natural', hex: '#c4a35a' }
     ],
     gallery: [
-      '/img/remodelacion-integral/remodelacion-integral.png',
-      '/img/servicios/remodelacion.png',
-      '/img/servicios/muebles.png',
-      '/img/servicios/muebles2.png'
+      '/img/remodelacion-integral/remodelacion-integral.webp',
+      '/img/servicios/remodelacion.webp',
+      '/img/servicios/muebles.webp',
+      '/img/servicios/muebles2.webp'
     ],
     deliveryTime: '6-8 semanas',
     isPaquete: true
@@ -556,8 +556,8 @@ const allProducts = {
       { name: 'Gris', hex: '#808080' }
     ],
     gallery: [
-      '/img/remodelacion-integral/remodelacion-integral.png',
-      '/img/servicios/remodelacion.png'
+      '/img/remodelacion-integral/remodelacion-integral.webp',
+      '/img/servicios/remodelacion.webp'
     ],
     deliveryTime: '2-3 semanas',
     isPaquete: true
@@ -588,9 +588,9 @@ const allProducts = {
       { name: 'Metal Negro + Pino', hex: '#deb887' }
     ],
     gallery: [
-      '/img/metal/servicio-metal.png',
-      '/img/remodelacion-integral/remodelacion-integral.png',
-      '/img/servicios/muebles.png'
+      '/img/metal/servicio-metal.webp',
+      '/img/remodelacion-integral/remodelacion-integral.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '4-5 semanas',
     isPaquete: true
@@ -621,9 +621,9 @@ const allProducts = {
       { name: 'Nogal + Negro', hex: '#5c4033' }
     ],
     gallery: [
-      '/img/metal/servicio-metal.png',
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/metal/servicio-metal.webp',
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -653,9 +653,9 @@ const allProducts = {
       { name: 'Wengue', hex: '#3d2b1f' }
     ],
     gallery: [
-      '/img/servicios/muebles2.png',
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles2.webp',
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '4-5 semanas'
   },
@@ -685,8 +685,8 @@ const allProducts = {
       { name: 'Negro', hex: '#1a1a1a' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -701,7 +701,7 @@ const allProducts = {
     features: ['Tapizado en tela premium', 'Patas de madera sólida', 'Diseño elegante', 'Fácil limpieza', 'Estructura reforzada'],
     dimensions: { width: '120 cm', depth: '45 cm', height: '48 cm' },
     colors: [{ name: 'Gris', hex: '#808080' }, { name: 'Beige', hex: '#d4c4a8' }, { name: 'Azul', hex: '#4169e1' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'mesa-centro-industrial': {
@@ -715,7 +715,7 @@ const allProducts = {
     features: ['Estructura de metal negro', 'Madera reciclada', 'Diseño único', 'Alta resistencia', 'Estilo industrial'],
     dimensions: { width: '110 cm', depth: '60 cm', height: '45 cm' },
     colors: [{ name: 'Natural + Negro', hex: '#deb887' }, { name: 'Envejecido + Negro', hex: '#8b7355' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '2-3 semanas'
   },
   'mesa-centro-con-almacenaje': {
@@ -729,7 +729,7 @@ const allProducts = {
     features: ['Cajones con guías suaves', 'Repisa inferior', 'Diseño funcional', 'Amplio almacenamiento', 'Acabados de calidad'],
     dimensions: { width: '120 cm', depth: '60 cm', height: '45 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'mesa-lateral-minimalista': {
@@ -743,7 +743,7 @@ const allProducts = {
     features: ['Diseño minimalista', 'Compacta', 'Fácil montaje', 'Versátil', 'Líneas limpias'],
     dimensions: { width: '45 cm', depth: '45 cm', height: '55 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '1-2 semanas'
   },
   'mesa-lateral-con-cajon': {
@@ -757,7 +757,7 @@ const allProducts = {
     features: ['Cajón con guía metálica', 'Superficie amplia', 'Diseño elegante', 'Almacenamiento oculto', 'Fácil montaje'],
     dimensions: { width: '50 cm', depth: '40 cm', height: '55 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'consola-entrada': {
@@ -771,7 +771,7 @@ const allProducts = {
     features: ['Diseño elegante', 'Repisa inferior', 'Versátil', 'Fácil montaje', 'Acabados premium'],
     dimensions: { width: '120 cm', depth: '35 cm', height: '80 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'consola-industrial': {
@@ -785,7 +785,7 @@ const allProducts = {
     features: ['Estructura de hierro', 'Superficie de madera maciza', 'Estilo industrial', 'Alta resistencia', 'Diseño único'],
     dimensions: { width: '130 cm', depth: '40 cm', height: '85 cm' },
     colors: [{ name: 'Roble + Negro', hex: '#deb887' }, { name: 'Nogal + Negro', hex: '#5c4033' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '3-4 semanas'
   },
   'librero-pared-completa': {
@@ -799,7 +799,7 @@ const allProducts = {
     features: ['Piso a techo', 'Repisas ajustables', 'Máxima capacidad', 'Diseño personalizable', 'Instalación incluida'],
     dimensions: { width: '300 cm', depth: '35 cm', height: '260 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-6 semanas'
   },
   'set-repisas-flotantes': {
@@ -813,7 +813,7 @@ const allProducts = {
     features: ['3 repisas incluidas', 'Herrajes ocultos', 'Fácil instalación', 'Diseño moderno', 'Diferentes tamaños'],
     dimensions: { small: '40 cm', medium: '60 cm', large: '80 cm', depth: '20 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '1-2 semanas'
   },
   'repisa-industrial': {
@@ -827,7 +827,7 @@ const allProducts = {
     features: ['Soportes de hierro forjado', 'Madera maciza', 'Estilo industrial', 'Alta resistencia', 'Herrajes incluidos'],
     dimensions: { width: '80 cm', depth: '25 cm' },
     colors: [{ name: 'Natural + Negro', hex: '#deb887' }, { name: 'Nogal + Negro', hex: '#5c4033' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '1-2 semanas'
   },
   'mueble-bar-compacto': {
@@ -841,7 +841,7 @@ const allProducts = {
     features: ['Portabotellas integrado', 'Colgador de copas', 'Puerta abatible', 'Diseño compacto', 'Iluminación LED opcional'],
     dimensions: { width: '80 cm', depth: '45 cm', height: '110 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Blanco', hex: '#ffffff' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'carro-bar-movil': {
@@ -855,7 +855,7 @@ const allProducts = {
     features: ['Ruedas con freno', 'Dos niveles', 'Barandilla de seguridad', 'Fácil de mover', 'Diseño elegante'],
     dimensions: { width: '70 cm', depth: '40 cm', height: '85 cm' },
     colors: [{ name: 'Dorado + Mármol', hex: '#d4af37' }, { name: 'Negro + Madera', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/metal/servicio-metal.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/metal/servicio-metal.webp'],
     deliveryTime: '2-3 semanas'
   },
   'sistema-modular-6-piezas': {
@@ -869,7 +869,7 @@ const allProducts = {
     features: ['6 cubos incluidos', 'Configuración libre', 'Conectores incluidos', 'Versatilidad total', 'Fácil reconfiguración'],
     dimensions: { perCube: '35 x 35 x 35 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Colores Mix', hex: '#4169e1' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'estanteria-modular': {
@@ -883,7 +883,7 @@ const allProducts = {
     features: ['Sistema expandible', 'Conexión sin herramientas', 'Módulos adicionales disponibles', 'Diseño moderno', 'Alta resistencia'],
     dimensions: { width: '120 cm', depth: '30 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Roble', hex: '#c4a35a' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   // COMEDOR - Más productos
@@ -912,8 +912,8 @@ const allProducts = {
       { name: 'Nogal', hex: '#5c4033' }
     ],
     gallery: [
-      '/img/servicios/cocina.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/cocina.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -928,7 +928,7 @@ const allProducts = {
     features: ['Puertas con sistema push', 'Cajones con cierre suave', 'Diseño contemporáneo', 'Amplio almacenamiento', 'Superficie resistente'],
     dimensions: { width: '160 cm', depth: '45 cm', height: '80 cm' },
     colors: [{ name: 'Blanco Mate', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'mesa-cuadrada-compacta': {
@@ -942,7 +942,7 @@ const allProducts = {
     features: ['Diseño compacto', 'Ideal para 4 personas', 'Fácil limpieza', 'Patas estables', 'Acabado resistente'],
     dimensions: { width: '100 cm', depth: '100 cm', height: '76 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'mesa-rectangular-6-personas': {
@@ -956,7 +956,7 @@ const allProducts = {
     features: ['Capacidad 6 personas', 'Madera sólida', 'Diseño clásico', 'Acabado resistente', 'Patas reforzadas'],
     dimensions: { width: '180 cm', depth: '90 cm', height: '76 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Natural', hex: '#deb887' }, { name: 'Wengue', hex: '#3d2b1f' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'mesa-ovalada-6-personas': {
@@ -970,7 +970,7 @@ const allProducts = {
     features: ['Forma ovalada', 'Mejor circulación', 'Diseño elegante', 'Capacidad 6 personas', 'Acabado premium'],
     dimensions: { width: '180 cm', depth: '100 cm', height: '76 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'mesa-gran-familia-8-personas': {
@@ -984,7 +984,7 @@ const allProducts = {
     features: ['Capacidad 8 personas', 'Ideal para reuniones', 'Madera sólida', 'Estructura reforzada', 'Acabado premium'],
     dimensions: { width: '220 cm', depth: '100 cm', height: '76 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'mesa-conferencia-10-personas': {
@@ -998,7 +998,7 @@ const allProducts = {
     features: ['Capacidad 10+ personas', 'Acabados ejecutivos', 'Pasacables opcional', 'Estructura premium', 'Personalizable'],
     dimensions: { width: '280 cm', depth: '110 cm', height: '76 cm' },
     colors: [{ name: 'Nogal Ejecutivo', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '5-6 semanas'
   },
   'mesa-extensible-4-6': {
@@ -1012,7 +1012,7 @@ const allProducts = {
     features: ['Sistema de extensión fácil', 'De 4 a 6 personas', 'Mecanismo suave', 'Diseño versátil', 'Almacena extensión'],
     dimensions: { widthClosed: '120 cm', widthOpen: '160 cm', depth: '90 cm', height: '76 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Roble', hex: '#c4a35a' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'mesa-extensible-6-10': {
@@ -1026,7 +1026,7 @@ const allProducts = {
     features: ['Doble extensión', 'De 6 a 10 personas', 'Mecanismo premium', 'Estructura reforzada', 'Extensiones almacenables'],
     dimensions: { widthClosed: '180 cm', widthOpen: '280 cm', depth: '100 cm', height: '76 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Roble', hex: '#c4a35a' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '5-6 semanas'
   },
   'banca-comedor-12m': {
@@ -1040,7 +1040,7 @@ const allProducts = {
     features: ['Madera sólida', 'Capacidad 2-3 personas', 'Diseño robusto', 'Combina con mesas', 'Fácil limpieza'],
     dimensions: { width: '120 cm', depth: '35 cm', height: '45 cm' },
     colors: [{ name: 'Natural', hex: '#deb887' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'banca-tapizada-comedor': {
@@ -1054,7 +1054,7 @@ const allProducts = {
     features: ['Asiento tapizado', 'Mayor confort', 'Estructura de madera', 'Tela antimanchas', 'Fácil limpieza'],
     dimensions: { width: '140 cm', depth: '40 cm', height: '48 cm' },
     colors: [{ name: 'Gris + Madera', hex: '#808080' }, { name: 'Beige + Nogal', hex: '#d4c4a8' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'credenza-rustica': {
@@ -1068,7 +1068,7 @@ const allProducts = {
     features: ['Acabado envejecido', 'Estilo rústico', 'Piezas únicas', 'Amplio almacenamiento', 'Herrajes vintage'],
     dimensions: { width: '180 cm', depth: '45 cm', height: '85 cm' },
     colors: [{ name: 'Envejecido Natural', hex: '#a0826d' }, { name: 'Blanco Vintage', hex: '#f5f5f0' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'buffetera-clasica': {
@@ -1082,7 +1082,7 @@ const allProducts = {
     features: ['Diseño clásico', 'Amplio almacenamiento', 'Puertas con vidrio opcional', 'Cajones para cubiertos', 'Superficie de servicio'],
     dimensions: { width: '160 cm', depth: '50 cm', height: '90 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Cerezo', hex: '#7b3f00' }, { name: 'Blanco', hex: '#ffffff' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'buffetera-con-vitrina': {
@@ -1096,7 +1096,7 @@ const allProducts = {
     features: ['Vitrina superior', 'Iluminación LED', 'Vidrio templado', 'Almacenamiento inferior', 'Diseño elegante'],
     dimensions: { width: '160 cm', depth: '45 cm', height: '200 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '5-6 semanas'
   },
   'vitrina-iluminada': {
@@ -1110,7 +1110,7 @@ const allProducts = {
     features: ['Iluminación LED', 'Vidrio templado', 'Repisas ajustables', 'Fondo espejado opcional', 'Diseño elegante'],
     dimensions: { width: '80 cm', depth: '40 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'vitrina-esquinera': {
@@ -1124,7 +1124,7 @@ const allProducts = {
     features: ['Diseño esquinero', 'Aprovecha espacios', 'Vidrio en frente', 'Repisas de vidrio', 'Iluminación opcional'],
     dimensions: { width: '60 cm', depth: '60 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   // RECÁMARA - Más productos
@@ -1154,8 +1154,8 @@ const allProducts = {
       { name: 'Gris', hex: '#808080' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/servicios/muebles2.png'
+      '/img/servicios/muebles.webp',
+      '/img/servicios/muebles2.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -1185,8 +1185,8 @@ const allProducts = {
       { name: 'Gris', hex: '#808080' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -1201,7 +1201,7 @@ const allProducts = {
     features: ['Seis cajones amplios', 'Guías de cierre suave', 'Superficie amplia', 'Diseño elegante', 'Alta capacidad'],
     dimensions: { width: '120 cm', depth: '45 cm', height: '80 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris Claro', hex: '#a8a8a8' }],
-    gallery: ['/img/servicios/muebles.png', '/img/servicios/muebles2.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/servicios/muebles2.webp'],
     deliveryTime: '3-4 semanas'
   },
   'cama-con-almacenaje': {
@@ -1215,7 +1215,7 @@ const allProducts = {
     features: ['Cajones laterales', 'Máximo almacenamiento', 'Sistema hidráulico opcional', 'Estructura reforzada', 'Diseño moderno'],
     dimensions: { width: '160/180/200 cm', depth: '200 cm', height: '40 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/servicios/muebles2.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/servicios/muebles2.webp'],
     deliveryTime: '4-5 semanas'
   },
   'cabecera-madera': {
@@ -1229,7 +1229,7 @@ const allProducts = {
     features: ['Madera sólida', 'Diseño geométrico', 'Fácil instalación', 'Combina con varios estilos', 'Acabado natural o pintado'],
     dimensions: { width: '160/180/200 cm', height: '120 cm', depth: '5 cm' },
     colors: [{ name: 'Natural', hex: '#deb887' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'cabecera-capitoneada': {
@@ -1243,7 +1243,7 @@ const allProducts = {
     features: ['Capitonado tipo Chester', 'Terciopelo premium', 'Relleno de espuma', 'Look de lujo', 'Varios tamaños'],
     dimensions: { width: '160/180/200 cm', height: '140 cm', depth: '10 cm' },
     colors: [{ name: 'Gris', hex: '#808080' }, { name: 'Azul', hex: '#4169e1' }, { name: 'Verde', hex: '#556b2f' }, { name: 'Rosa', hex: '#d4a5a5' }],
-    gallery: ['/img/servicios/muebles.png', '/img/servicios/muebles2.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/servicios/muebles2.webp'],
     deliveryTime: '3-4 semanas'
   },
   'buro-flotante': {
@@ -1257,7 +1257,7 @@ const allProducts = {
     features: ['Montaje en pared', 'Diseño minimalista', 'Libera espacio', 'Cajón incluido', 'Herrajes ocultos'],
     dimensions: { width: '45 cm', depth: '35 cm', height: '15 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'buro-con-cargador': {
@@ -1271,7 +1271,7 @@ const allProducts = {
     features: ['Cargador inalámbrico Qi', 'Puerto USB adicional', 'Cajón amplio', 'Diseño moderno', 'Compatible con iPhone/Android'],
     dimensions: { width: '50 cm', depth: '40 cm', height: '55 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'comoda-doble': {
@@ -1285,7 +1285,7 @@ const allProducts = {
     features: ['Doble ancho', 'Ideal para parejas', '8 cajones', 'División central', 'Superficie amplia'],
     dimensions: { width: '160 cm', depth: '45 cm', height: '80 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/servicios/muebles2.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/servicios/muebles2.webp'],
     deliveryTime: '4-5 semanas'
   },
   'chifonier-5-cajones': {
@@ -1299,7 +1299,7 @@ const allProducts = {
     features: ['Diseño vertical', '5 cajones amplios', 'Ideal para espacios pequeños', 'Guías metálicas', 'Estable y seguro'],
     dimensions: { width: '60 cm', depth: '45 cm', height: '120 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'chifonier-con-espejo': {
@@ -1313,7 +1313,7 @@ const allProducts = {
     features: ['Espejo abatible', 'Doble función', '5 cajones', 'Compartimento superior', 'Diseño elegante'],
     dimensions: { width: '70 cm', depth: '45 cm', height: '130 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'banca-pie-de-cama': {
@@ -1327,7 +1327,7 @@ const allProducts = {
     features: ['Tapizado elegante', 'Ideal para vestirse', 'Complemento decorativo', 'Patas de madera', 'Varios acabados'],
     dimensions: { width: '120 cm', depth: '45 cm', height: '48 cm' },
     colors: [{ name: 'Gris', hex: '#808080' }, { name: 'Beige', hex: '#d4c4a8' }, { name: 'Azul', hex: '#4169e1' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'banca-con-almacenaje-recamara': {
@@ -1341,7 +1341,7 @@ const allProducts = {
     features: ['Compartimento oculto', 'Tapa con bisagras', 'Gran capacidad', 'Tapizado premium', 'Doble función'],
     dimensions: { width: '130 cm', depth: '45 cm', height: '50 cm' },
     colors: [{ name: 'Gris', hex: '#808080' }, { name: 'Crema', hex: '#f5f5dc' }, { name: 'Azul Marino', hex: '#1e3a5f' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'tocador-con-espejo': {
@@ -1355,7 +1355,7 @@ const allProducts = {
     features: ['Espejo grande', 'Múltiples cajones', 'Diseño clásico', 'Superficie amplia', 'Cajones organizadores'],
     dimensions: { width: '100 cm', depth: '45 cm', height: '145 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Rosa Palo', hex: '#d4a5a5' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'tocador-moderno': {
@@ -1369,7 +1369,7 @@ const allProducts = {
     features: ['Iluminación LED regulable', 'Espejo amplio', 'Diseño moderno', 'Cajones con divisores', 'Toma corriente integrada'],
     dimensions: { width: '120 cm', depth: '50 cm', height: '150 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Roble', hex: '#c4a35a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/servicios/muebles2.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/servicios/muebles2.webp'],
     deliveryTime: '4-5 semanas'
   },
   'closet-abierto-basico': {
@@ -1383,7 +1383,7 @@ const allProducts = {
     features: ['Sistema abierto', 'Barras para ropa', 'Repisas ajustables', 'Modular', 'Fácil acceso'],
     dimensions: { width: '150 cm', depth: '50 cm', height: '200 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'closet-modular-completo': {
@@ -1397,7 +1397,7 @@ const allProducts = {
     features: ['Sistema completo', 'Cajones incluidos', 'Zapatera integrada', 'Barras dobles', 'Personalizable'],
     dimensions: { width: '200 cm', depth: '60 cm', height: '240 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '5-6 semanas'
   },
   // COCINA - Más productos
@@ -1428,8 +1428,8 @@ const allProducts = {
       { name: 'Madera', hex: '#deb887' }
     ],
     gallery: [
-      '/img/servicios/cocina.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/cocina.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '5-6 semanas',
     isPaquete: true
@@ -1460,9 +1460,9 @@ const allProducts = {
       { name: 'Madera Roble', hex: '#c4a35a' }
     ],
     gallery: [
-      '/img/servicios/cocina.png',
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles.png'
+      '/img/servicios/cocina.webp',
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '8-10 semanas',
     isPaquete: true
@@ -1478,7 +1478,7 @@ const allProducts = {
     features: ['Gabinetes con puertas', 'Entrepaños ajustables', 'Cubierta resistente', 'Ruedas opcionales', 'Fácil montaje'],
     dimensions: { width: '120 cm', depth: '60 cm', height: '90 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'cocina-en-u-premium': {
@@ -1492,7 +1492,7 @@ const allProducts = {
     features: ['Distribución en U', 'Acabados premium', 'Isla opcional', 'Herrajes de lujo', 'Diseño personalizado'],
     dimensions: { sideA: '350 cm', sideB: '250 cm', sideC: '350 cm' },
     colors: [{ name: 'Blanco Premium', hex: '#ffffff' }, { name: 'Gris Antracita', hex: '#4a4a4a' }, { name: 'Madera Premium', hex: '#8b7355' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '10-12 semanas',
     isPaquete: true
   },
@@ -1507,7 +1507,7 @@ const allProducts = {
     features: ['Puerta con bisagra', 'Entrepaño ajustable', 'Patas niveladoras', 'Compatible con cubiertas', 'Cierre suave'],
     dimensions: { width: '60 cm', depth: '58 cm', height: '85 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'gabinete-cajones-60cm': {
@@ -1521,7 +1521,7 @@ const allProducts = {
     features: ['3 cajones', 'Cierre suave', 'Extensión total', 'Guías metálicas', 'Organizadores opcionales'],
     dimensions: { width: '60 cm', depth: '58 cm', height: '85 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'gabinete-esquinero': {
@@ -1535,7 +1535,7 @@ const allProducts = {
     features: ['Sistema giratorio', 'Fácil acceso', 'Maximiza espacio', 'Carrusel incluido', 'Puerta angular'],
     dimensions: { width: '90 cm', depth: '90 cm', height: '85 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'gabinete-superior-60cm': {
@@ -1549,7 +1549,7 @@ const allProducts = {
     features: ['Dos entrepaños', 'Entrepaños ajustables', 'Bisagras de cierre suave', 'Fácil instalación', 'Interior melamínico'],
     dimensions: { width: '60 cm', depth: '35 cm', height: '70 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'gabinete-vitrina': {
@@ -1563,7 +1563,7 @@ const allProducts = {
     features: ['Puertas de vidrio', 'Exhibición elegante', 'Vidrio templado', 'Entrepaños de vidrio', 'Bisagras premium'],
     dimensions: { width: '60 cm', depth: '35 cm', height: '70 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'gabinete-campana': {
@@ -1577,7 +1577,7 @@ const allProducts = {
     features: ['Oculta campana', 'Diseño integrado', 'Ventilación adecuada', 'Línea uniforme', 'Varios tamaños'],
     dimensions: { width: '60/90 cm', depth: '35 cm', height: '70 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'alacena-sencilla': {
@@ -1591,7 +1591,7 @@ const allProducts = {
     features: ['Piso a techo', 'Entrepaños ajustables', 'Puertas completas', 'Alta capacidad', 'Bisagras reforzadas'],
     dimensions: { width: '60 cm', depth: '40 cm', height: '220 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'alacena-doble': {
@@ -1605,7 +1605,7 @@ const allProducts = {
     features: ['Puertas dobles', 'Gran capacidad', 'Interior configurable', 'Canastas opcionales', 'Iluminación opcional'],
     dimensions: { width: '90 cm', depth: '45 cm', height: '220 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'isla-con-barra': {
@@ -1619,7 +1619,7 @@ const allProducts = {
     features: ['Barra desayunador', 'Almacenamiento', 'Cubierta premium', 'Espacio para bancos', 'Múltiples funciones'],
     dimensions: { width: '180 cm', depth: '90 cm', height: '90/110 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'barra-desayunador': {
@@ -1633,7 +1633,7 @@ const allProducts = {
     features: ['Montaje en pared', 'Ahorra espacio', 'Cubierta resistente', 'Soporte oculto', 'Ideal para departamentos'],
     dimensions: { width: '120 cm', depth: '40 cm', height: '110 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'barra-con-almacenaje': {
@@ -1647,7 +1647,7 @@ const allProducts = {
     features: ['Almacenamiento integrado', 'Repisas incluidas', 'Cajones', 'Diseño funcional', 'Estructura autoportante'],
     dimensions: { width: '140 cm', depth: '45 cm', height: '110 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Madera', hex: '#deb887' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'mueble-despensa-alto': {
@@ -1661,7 +1661,7 @@ const allProducts = {
     features: ['Piso a techo', 'Múltiples niveles', 'Puertas completas', 'Entrepaños ajustables', 'Alta capacidad'],
     dimensions: { width: '60 cm', depth: '45 cm', height: '220 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'despensa-con-canastas': {
@@ -1675,7 +1675,7 @@ const allProducts = {
     features: ['Canastas extraíbles', 'Fácil acceso', 'Guías de extensión total', 'Máxima visibilidad', 'Organización perfecta'],
     dimensions: { width: '60 cm', depth: '50 cm', height: '220 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'carro-de-cocina': {
@@ -1689,7 +1689,7 @@ const allProducts = {
     features: ['Ruedas con freno', 'Superficie de trabajo', 'Repisas', 'Cajón para utensilios', 'Fácil de mover'],
     dimensions: { width: '80 cm', depth: '45 cm', height: '90 cm' },
     colors: [{ name: 'Blanco + Natural', hex: '#ffffff' }, { name: 'Negro + Natural', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'repisas-de-cocina-set': {
@@ -1703,7 +1703,7 @@ const allProducts = {
     features: ['3 repisas incluidas', 'Herrajes ocultos', 'Fácil instalación', 'Resistentes a humedad', 'Diferentes tamaños'],
     dimensions: { small: '40 cm', medium: '60 cm', large: '80 cm', depth: '15 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/cocina.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/cocina.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '1-2 semanas'
   },
   // OFICINA - Más productos
@@ -1732,8 +1732,8 @@ const allProducts = {
       { name: 'Nogal + Negro', hex: '#5c4033' }
     ],
     gallery: [
-      '/img/metal/servicio-metal.png',
-      '/img/servicios/muebles.png'
+      '/img/metal/servicio-metal.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -1780,7 +1780,7 @@ const allProducts = {
     features: ['5 niveles de repisas', 'Repisas ajustables', 'Diseño profesional', 'Alta capacidad', 'Fácil montaje'],
     dimensions: { width: '80 cm', depth: '30 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'estacion-de-trabajo-individual': {
@@ -1794,7 +1794,7 @@ const allProducts = {
     features: ['Todo integrado', 'Cajonera incluida', 'Librero lateral', 'Pasacables', 'Diseño ergonómico'],
     dimensions: { width: '160 cm', depth: '70 cm', height: '145 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/escritorios/cafe/mueblecafe.jpeg', '/img/servicios/muebles.png'],
+    gallery: ['/img/escritorios/cafe/mueblecafe.jpeg', '/img/servicios/muebles.webp'],
     deliveryTime: '3-4 semanas'
   },
   'estacion-doble': {
@@ -1808,7 +1808,7 @@ const allProducts = {
     features: ['Dos puestos de trabajo', 'División central', 'Pasacables doble', 'Cajoneras individuales', 'Diseño simétrico'],
     dimensions: { width: '280 cm', depth: '70 cm', height: '120 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'librero-con-puertas': {
@@ -1822,7 +1822,7 @@ const allProducts = {
     features: ['Repisas abiertas arriba', 'Puertas inferiores', 'Cerradura opcional', 'Repisas ajustables', 'Diseño ejecutivo'],
     dimensions: { width: '90 cm', depth: '35 cm', height: '200 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'archivero-3-gavetas': {
@@ -1836,7 +1836,7 @@ const allProducts = {
     features: ['3 gavetas', 'Cerradura central', 'Extensión total', 'Tamaño carta/oficio', 'Estructura metálica'],
     dimensions: { width: '47 cm', depth: '60 cm', height: '100 cm' },
     colors: [{ name: 'Negro', hex: '#1a1a1a' }, { name: 'Gris', hex: '#808080' }, { name: 'Blanco', hex: '#ffffff' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '2-3 semanas'
   },
   'archivero-madera': {
@@ -1850,7 +1850,7 @@ const allProducts = {
     features: ['Acabado madera', 'Combina con escritorios', '3 gavetas', 'Cerradura incluida', 'Guías metálicas'],
     dimensions: { width: '50 cm', depth: '55 cm', height: '100 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'credenza-oficina': {
@@ -1864,7 +1864,7 @@ const allProducts = {
     features: ['Puertas y cajones', 'Múltiples compartimentos', 'Superficie de trabajo', 'Diseño profesional', 'Cerradura opcional'],
     dimensions: { width: '180 cm', depth: '45 cm', height: '75 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'credenza-ejecutiva': {
@@ -1878,7 +1878,7 @@ const allProducts = {
     features: ['Acabados premium', 'Herrajes de lujo', 'Pasacables oculto', 'Diseño ejecutivo', 'Múltiple almacenamiento'],
     dimensions: { width: '200 cm', depth: '50 cm', height: '75 cm' },
     colors: [{ name: 'Nogal Executive', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'cajonera-movil-3-cajones': {
@@ -1892,7 +1892,7 @@ const allProducts = {
     features: ['3 cajones', 'Ruedas con freno', 'Cerradura central', 'Cabe bajo escritorio', 'Guías metálicas'],
     dimensions: { width: '42 cm', depth: '55 cm', height: '60 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'cajonera-fija': {
@@ -1906,7 +1906,7 @@ const allProducts = {
     features: ['3 cajones', 'Sin ruedas', 'Mayor estabilidad', 'Cerradura opcional', 'Guías de extensión'],
     dimensions: { width: '42 cm', depth: '55 cm', height: '60 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'mesa-juntas-6-personas': {
@@ -1920,7 +1920,7 @@ const allProducts = {
     features: ['Capacidad 6 personas', 'Pasacables opcional', 'Diseño profesional', 'Patas estables', 'Acabado resistente'],
     dimensions: { width: '180 cm', depth: '100 cm', height: '76 cm' },
     colors: [{ name: 'Nogal', hex: '#5c4033' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'mesa-juntas-10-personas': {
@@ -1934,7 +1934,7 @@ const allProducts = {
     features: ['Capacidad 10 personas', 'Pasacables integrados', 'Acabados premium', 'Diseño ejecutivo', 'Base reforzada'],
     dimensions: { width: '300 cm', depth: '120 cm', height: '76 cm' },
     colors: [{ name: 'Nogal Executive', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '5-6 semanas'
   },
   // INFANTIL - Productos
@@ -1965,8 +1965,8 @@ const allProducts = {
       { name: 'Rosa', hex: '#ffb6c1' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -1996,8 +1996,8 @@ const allProducts = {
       { name: 'Gris', hex: '#808080' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -2012,7 +2012,7 @@ const allProducts = {
     features: ['Altura ajustable', 'Superficie amplia', 'Portalápices integrado', 'Cajón para útiles', 'Bordes redondeados'],
     dimensions: { width: '100 cm', depth: '50 cm', height: '55-70 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Azul', hex: '#4169e1' }, { name: 'Rosa', hex: '#ff69b4' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'cama-tipo-nido': {
@@ -2026,7 +2026,7 @@ const allProducts = {
     features: ['Cama auxiliar oculta', 'Sistema deslizable', 'Dos camas en una', 'Ahorra espacio', 'Estructura segura'],
     dimensions: { width: '100 cm', depth: '200 cm', height: '50 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'cama-tematica': {
@@ -2040,7 +2040,7 @@ const allProducts = {
     features: ['Diseños divertidos', 'Materiales seguros', 'Pintura no tóxica', 'Estructura resistente', 'Personalizable'],
     dimensions: { width: 'Variable', depth: '200 cm', height: 'Variable' },
     colors: [{ name: 'Rojo', hex: '#ff0000' }, { name: 'Azul', hex: '#4169e1' }, { name: 'Rosa', hex: '#ff69b4' }, { name: 'Verde', hex: '#32cd32' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'litera-con-escritorio': {
@@ -2054,7 +2054,7 @@ const allProducts = {
     features: ['Cama superior', 'Escritorio inferior', 'Ahorra espacio', 'Escalera segura', 'Estantería incluida'],
     dimensions: { width: '100 cm', depth: '200 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'litera-triple': {
@@ -2068,7 +2068,7 @@ const allProducts = {
     features: ['Tres camas', 'Estructura compacta', 'Barandales de seguridad', 'Escalera amplia', 'Soporta 90kg por cama'],
     dimensions: { width: '100 cm', depth: '200 cm', height: '220 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'escritorio-con-repisa': {
@@ -2082,7 +2082,7 @@ const allProducts = {
     features: ['Repisa superior', 'Organización fácil', 'Cajón incluido', 'Bordes seguros', 'Altura adecuada'],
     dimensions: { width: '110 cm', depth: '55 cm', height: '120 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Azul', hex: '#4169e1' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'librero-infantil-bajo': {
@@ -2096,7 +2096,7 @@ const allProducts = {
     features: ['Altura accesible', 'Fomenta independencia', 'Bordes redondeados', 'Estable y seguro', 'Colores divertidos'],
     dimensions: { width: '80 cm', depth: '30 cm', height: '80 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Colores', hex: '#4169e1' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'librero-estanteria': {
@@ -2110,7 +2110,7 @@ const allProducts = {
     features: ['Diseño abierto', 'Varios niveles', 'Fácil acceso', 'Versátil', 'Estructura estable'],
     dimensions: { width: '90 cm', depth: '30 cm', height: '120 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'juguetero-con-cajas': {
@@ -2124,7 +2124,7 @@ const allProducts = {
     features: ['Cajas de colores', 'Cajas removibles', 'Fácil organización', 'Enseña orden', 'Estructura segura'],
     dimensions: { width: '100 cm', depth: '35 cm', height: '80 cm' },
     colors: [{ name: 'Blanco + Colores', hex: '#ffffff' }, { name: 'Natural + Colores', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'baul-juguetero': {
@@ -2138,7 +2138,7 @@ const allProducts = {
     features: ['Tapa con bisagra segura', 'Gran capacidad', 'Puede usarse como asiento', 'Diseño divertido', 'Ruedas opcionales'],
     dimensions: { width: '80 cm', depth: '45 cm', height: '45 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Colores', hex: '#ff69b4' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'closet-infantil-abierto': {
@@ -2152,7 +2152,7 @@ const allProducts = {
     features: ['Altura accesible', 'Barras bajas', 'Repisas para zapatos', 'Fomenta independencia', 'Fácil organización'],
     dimensions: { width: '120 cm', depth: '45 cm', height: '140 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'armario-infantil': {
@@ -2166,7 +2166,7 @@ const allProducts = {
     features: ['Puertas con cierre suave', 'Cajones inferiores', 'Barra para ropa', 'Sistema anti-vuelco', 'Diseño seguro'],
     dimensions: { width: '100 cm', depth: '50 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'sistema-modular-infantil': {
@@ -2180,7 +2180,7 @@ const allProducts = {
     features: ['Cubos de colores', 'Configuración libre', 'Fomenta creatividad', 'Seguros y estables', 'Conectores incluidos'],
     dimensions: { perCube: '35 x 35 x 35 cm' },
     colors: [{ name: 'Multicolor', hex: '#ff69b4' }, { name: 'Pasteles', hex: '#87ceeb' }, { name: 'Blanco + Color', hex: '#ffffff' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'estanteria-escalera-infantil': {
@@ -2194,7 +2194,7 @@ const allProducts = {
     features: ['Diseño escalera', 'Sistema anti-vuelco', 'Repisas variadas', 'Colores divertidos', 'Fácil montaje'],
     dimensions: { width: '70 cm', depth: '30 cm', height: '120 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Colores', hex: '#32cd32' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   // RECIBIDOR - Productos
@@ -2224,8 +2224,8 @@ const allProducts = {
       { name: 'Negro', hex: '#1a1a1a' }
     ],
     gallery: [
-      '/img/servicios/muebles.png',
-      '/img/carpinteria/carpinteria.png'
+      '/img/servicios/muebles.webp',
+      '/img/carpinteria/carpinteria.webp'
     ],
     deliveryTime: '2-3 semanas'
   },
@@ -2240,7 +2240,7 @@ const allProducts = {
     features: ['Capacidad 12 pares', 'Puerta abatible', 'Diseño compacto', 'Mantiene orden', 'Fácil acceso'],
     dimensions: { width: '60 cm', depth: '20 cm', height: '100 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'consola-con-cajones': {
@@ -2254,7 +2254,7 @@ const allProducts = {
     features: ['Cajones organizadores', 'Superficie amplia', 'Diseño elegante', 'Repisa inferior', 'Fácil montaje'],
     dimensions: { width: '110 cm', depth: '35 cm', height: '85 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'consola-industrial-recibidor': {
@@ -2268,7 +2268,7 @@ const allProducts = {
     features: ['Estructura de metal', 'Superficie de madera', 'Estilo industrial', 'Resistente', 'Fácil limpieza'],
     dimensions: { width: '100 cm', depth: '30 cm', height: '80 cm' },
     colors: [{ name: 'Negro + Natural', hex: '#1a1a1a' }, { name: 'Negro + Nogal', hex: '#5c4033' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '2-3 semanas'
   },
   'zapatera-con-banca': {
@@ -2282,7 +2282,7 @@ const allProducts = {
     features: ['Doble función', 'Banca acolchada', 'Zapatera oculta', 'Diseño práctico', 'Estructura resistente'],
     dimensions: { width: '100 cm', depth: '40 cm', height: '50 cm' },
     colors: [{ name: 'Blanco + Gris', hex: '#ffffff' }, { name: 'Nogal + Beige', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'zapatera-alta-30-pares': {
@@ -2296,7 +2296,7 @@ const allProducts = {
     features: ['Capacidad 30 pares', 'Aprovecha altura', 'Puertas completas', 'Entrepaños ajustables', 'Diseño esbelto'],
     dimensions: { width: '70 cm', depth: '25 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'banca-recibidor': {
@@ -2310,7 +2310,7 @@ const allProducts = {
     features: ['Diseño elegante', 'Asiento cómodo', 'Patas estables', 'Fácil limpieza', 'Varios estilos'],
     dimensions: { width: '100 cm', depth: '40 cm', height: '45 cm' },
     colors: [{ name: 'Natural', hex: '#deb887' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'banca-con-almacenaje-recibidor': {
@@ -2324,7 +2324,7 @@ const allProducts = {
     features: ['Almacenamiento oculto', 'Tapa con bisagras', 'Asiento acolchado', 'Gran capacidad', 'Diseño elegante'],
     dimensions: { width: '110 cm', depth: '45 cm', height: '48 cm' },
     colors: [{ name: 'Blanco + Gris', hex: '#ffffff' }, { name: 'Nogal + Beige', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'perchero-de-pared': {
@@ -2338,7 +2338,7 @@ const allProducts = {
     features: ['Múltiples ganchos', 'Montaje en pared', 'Ahorra espacio', 'Diseño minimalista', 'Fácil instalación'],
     dimensions: { width: '60 cm', depth: '8 cm', height: '15 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '1-2 semanas'
   },
   'mueble-recibidor-con-perchero': {
@@ -2352,7 +2352,7 @@ const allProducts = {
     features: ['Todo en uno', 'Perchero integrado', 'Espejo incluido', 'Repisa y cajón', 'Diseño completo'],
     dimensions: { width: '90 cm', depth: '35 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'perchero-de-pie': {
@@ -2366,7 +2366,7 @@ const allProducts = {
     features: ['No requiere instalación', 'Múltiples ganchos', 'Base estable', 'Diseño elegante', 'Fácil de mover'],
     dimensions: { diameter: '45 cm', height: '180 cm' },
     colors: [{ name: 'Natural', hex: '#deb887' }, { name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'organizador-entrada-compacto': {
@@ -2380,7 +2380,7 @@ const allProducts = {
     features: ['Múltiples compartimentos', 'Porta llaves', 'Bandeja para celular', 'Ganchos incluidos', 'Montaje en pared'],
     dimensions: { width: '50 cm', depth: '12 cm', height: '35 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '1-2 semanas'
   },
   'panel-organizador': {
@@ -2394,7 +2394,7 @@ const allProducts = {
     features: ['Sistema modular', 'Ganchos movibles', 'Repisas ajustables', 'Personalizable', 'Fácil instalación'],
     dimensions: { width: '80 cm', depth: '10 cm', height: '60 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   // ALMACENAMIENTO - Productos
@@ -2423,8 +2423,8 @@ const allProducts = {
       { name: 'Negro', hex: '#1a1a1a' }
     ],
     gallery: [
-      '/img/metal/servicio-metal.png',
-      '/img/servicios/muebles.png'
+      '/img/metal/servicio-metal.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '1-2 semanas'
   },
@@ -2439,7 +2439,7 @@ const allProducts = {
     features: ['Repisas ajustables', 'Barra para colgar', 'Puertas con cerradura', 'Versatilidad total', 'Alta capacidad'],
     dimensions: { width: '90 cm', depth: '50 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'estanteria-madera-industrial': {
@@ -2453,7 +2453,7 @@ const allProducts = {
     features: ['Estructura de metal', 'Repisas de madera', 'Estilo industrial', 'Alta resistencia', 'Fácil montaje'],
     dimensions: { width: '100 cm', depth: '40 cm', height: '180 cm' },
     colors: [{ name: 'Negro + Natural', hex: '#1a1a1a' }, { name: 'Negro + Nogal', hex: '#5c4033' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '2-3 semanas'
   },
   'rack-modular': {
@@ -2467,7 +2467,7 @@ const allProducts = {
     features: ['Sistema modular', 'Expandible', 'Fácil conexión', 'Alta resistencia', 'Configuración libre'],
     dimensions: { width: '90 cm', depth: '40 cm', height: '180 cm' },
     colors: [{ name: 'Gris', hex: '#808080' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '2-3 semanas'
   },
   'gabinete-almacenaje-alto': {
@@ -2481,7 +2481,7 @@ const allProducts = {
     features: ['Puertas completas', 'Oculta contenido', 'Repisas ajustables', 'Diseño limpio', 'Cerradura opcional'],
     dimensions: { width: '80 cm', depth: '45 cm', height: '180 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'gabinete-herramientas': {
@@ -2495,7 +2495,7 @@ const allProducts = {
     features: ['Diseño para taller', 'Cajones para tornillería', 'Superficie de trabajo', 'Panel perforado', 'Alta resistencia'],
     dimensions: { width: '120 cm', depth: '50 cm', height: '180 cm' },
     colors: [{ name: 'Gris Industrial', hex: '#808080' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '3-4 semanas'
   },
   'armario-lavanderia': {
@@ -2509,7 +2509,7 @@ const allProducts = {
     features: ['Diseño para lavandería', 'Espacio para canastas', 'Resistente a humedad', 'Repisas ajustables', 'Barra para tender'],
     dimensions: { width: '100 cm', depth: '45 cm', height: '200 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '3-4 semanas'
   },
   'baul-de-madera-grande': {
@@ -2523,7 +2523,7 @@ const allProducts = {
     features: ['Decorativo y funcional', 'Doble uso', 'Madera sólida', 'Bisagras de seguridad', 'Acabados vintage'],
     dimensions: { width: '90 cm', depth: '45 cm', height: '45 cm' },
     colors: [{ name: 'Natural', hex: '#deb887' }, { name: 'Envejecido', hex: '#a0826d' }, { name: 'Blanco Vintage', hex: '#f5f5f0' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'baul-con-ruedas': {
@@ -2537,7 +2537,7 @@ const allProducts = {
     features: ['Con ruedas', 'Cabe bajo cama', 'Fácil de mover', 'Gran capacidad', 'Tapa con asa'],
     dimensions: { width: '100 cm', depth: '60 cm', height: '25 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris', hex: '#808080' }, { name: 'Natural', hex: '#deb887' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'mueble-multiusos-compacto': {
@@ -2551,7 +2551,7 @@ const allProducts = {
     features: ['Triple almacenamiento', 'Repisas + cajones + puerta', 'Diseño compacto', 'Versátil', 'Múltiples usos'],
     dimensions: { width: '80 cm', depth: '40 cm', height: '120 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   'cubos-apilables-set': {
@@ -2565,7 +2565,7 @@ const allProducts = {
     features: ['4 cubos incluidos', 'Apilables', 'Configuración libre', 'Puertas opcionales', 'Cajas de tela opcionales'],
     dimensions: { perCube: '35 x 35 x 35 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Natural', hex: '#deb887' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/servicios/muebles.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/servicios/muebles.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '2-3 semanas'
   },
   // PUERTAS - Productos
@@ -2595,8 +2595,8 @@ const allProducts = {
       { name: 'Caoba', hex: '#420d09' }
     ],
     gallery: [
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles.png'
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -2626,9 +2626,9 @@ const allProducts = {
       { name: 'Gris Lavado', hex: '#a8a8a8' }
     ],
     gallery: [
-      '/img/carpinteria/carpinteria.png',
-      '/img/servicios/muebles.png',
-      '/img/metal/servicio-metal.png'
+      '/img/carpinteria/carpinteria.webp',
+      '/img/servicios/muebles.webp',
+      '/img/metal/servicio-metal.webp'
     ],
     deliveryTime: '3-4 semanas'
   },
@@ -2643,7 +2643,7 @@ const allProducts = {
     features: ['MDF alta densidad', 'Acabado melamínico', 'Diseño minimalista', 'Marco incluido', 'Fácil mantenimiento'],
     dimensions: { width: '80 cm', height: '205 cm', thickness: '3.5 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Gris Claro', hex: '#d3d3d3' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '2-3 semanas'
   },
   'puerta-madera-tallada': {
@@ -2657,7 +2657,7 @@ const allProducts = {
     features: ['Tallado artesanal', 'Pieza única', 'Madera sólida', 'Trabajo artesanal', 'Alta seguridad'],
     dimensions: { width: '90-100 cm', height: '210 cm', thickness: '5 cm' },
     colors: [{ name: 'Natural', hex: '#deb887' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Caoba', hex: '#420d09' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '6-8 semanas'
   },
   'puerta-madera-hierro': {
@@ -2671,7 +2671,7 @@ const allProducts = {
     features: ['Madera + hierro forjado', 'Diseño único', 'Alta seguridad', 'Resistente a intemperie', 'Acabados premium'],
     dimensions: { width: '90-100 cm', height: '210 cm', thickness: '5 cm' },
     colors: [{ name: 'Nogal + Negro', hex: '#5c4033' }, { name: 'Natural + Negro', hex: '#deb887' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '5-6 semanas'
   },
   'puerta-con-vitral': {
@@ -2685,7 +2685,7 @@ const allProducts = {
     features: ['Vitral artístico', 'Permite luz', 'Diseños personalizados', 'Marco de madera', 'Vidrio de seguridad'],
     dimensions: { width: '90-100 cm', height: '210 cm', thickness: '5 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Negro', hex: '#1a1a1a' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '6-8 semanas'
   },
   'puerta-corrediza-simple': {
@@ -2699,7 +2699,7 @@ const allProducts = {
     features: ['Sistema corredizo', 'Ahorra espacio', 'Riel superior', 'Guía inferior', 'Fácil operación'],
     dimensions: { width: '80-90 cm', height: '205 cm', thickness: '4 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Gris', hex: '#808080' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '3-4 semanas'
   },
   'puerta-corrediza-doble': {
@@ -2713,7 +2713,7 @@ const allProducts = {
     features: ['Doble hoja', 'Vanos amplios', 'Rieles de calidad', 'Operación suave', 'Cierre magnético'],
     dimensions: { width: '160-180 cm', height: '205 cm', thickness: '4 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Vidrio + Madera', hex: '#808080' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '4-5 semanas'
   },
   'puerta-granero-industrial': {
@@ -2727,7 +2727,7 @@ const allProducts = {
     features: ['Estilo industrial', 'Herraje negro mate', 'Metal + madera', 'Riel robusto', 'Ruedas de acero'],
     dimensions: { width: '90-100 cm', height: '210 cm', thickness: '4 cm' },
     colors: [{ name: 'Negro + Natural', hex: '#1a1a1a' }, { name: 'Gris + Metal', hex: '#808080' }],
-    gallery: ['/img/metal/servicio-metal.png', '/img/carpinteria/carpinteria.png'],
+    gallery: ['/img/metal/servicio-metal.webp', '/img/carpinteria/carpinteria.webp'],
     deliveryTime: '4-5 semanas'
   },
   'puerta-interior-6-tableros': {
@@ -2741,7 +2741,7 @@ const allProducts = {
     features: ['Diseño 6 tableros', 'Estilo clásico', 'MDF o madera', 'Marco incluido', 'Varios acabados'],
     dimensions: { width: '80-90 cm', height: '205 cm', thickness: '4 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Nogal', hex: '#5c4033' }, { name: 'Cerezo', hex: '#7b3f00' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '3-4 semanas'
   },
   'puerta-interior-con-vidrio': {
@@ -2755,7 +2755,7 @@ const allProducts = {
     features: ['Panel de vidrio', 'Paso de luz', 'Vidrio templado', 'Privacidad parcial', 'Diseño moderno'],
     dimensions: { width: '80-90 cm', height: '205 cm', thickness: '4 cm' },
     colors: [{ name: 'Blanco', hex: '#ffffff' }, { name: 'Negro', hex: '#1a1a1a' }, { name: 'Nogal', hex: '#5c4033' }],
-    gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles.png'],
+    gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles.webp'],
     deliveryTime: '3-4 semanas'
   }
 };

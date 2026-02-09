@@ -90,8 +90,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Pérgola Residencial',
       description: 'Estructura metálica tipo pérgola con acabado en pintura electrostática, diseño moderno para área de descanso exterior.',
       location: 'Toluca, Estado de México',
-      image: '/img/metal/pergola.png',
-      gallery: ['/img/metal/pergola.png', '/img/metal/servicio-metal.png', '/img/servicios/muebles.png']
+      image: '/img/metal/pergola.webp',
+      gallery: ['/img/metal/pergola.webp', '/img/metal/servicio-metal.webp', '/img/servicios/muebles.webp']
     },
     {
       id: 2,
@@ -99,8 +99,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Portón Residencial Automatizado',
       description: 'Portón de acceso vehicular con diseño contemporáneo, estructura de acero con acabado anticorrosivo y sistema de automatización.',
       location: 'Metepec, Estado de México',
-      image: '/img/metal/servicio-metal.png',
-      gallery: ['/img/metal/servicio-metal.png', '/img/metal/pergola.png', '/img/remodelacion-integral/remodelacion-integral.png']
+      image: '/img/metal/servicio-metal.webp',
+      gallery: ['/img/metal/servicio-metal.webp', '/img/metal/pergola.webp', '/img/remodelacion-integral/remodelacion-integral.webp']
     },
     {
       id: 3,
@@ -108,8 +108,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Barandal de Escalera',
       description: 'Barandal de acero con diseño minimalista para escalera interior de residencia, acabados premium.',
       location: 'CDMX',
-      image: '/img/metal/pergola.png',
-      gallery: ['/img/metal/pergola.png', '/img/metal/servicio-metal.png', '/img/carpinteria/carpinteria.png']
+      image: '/img/metal/pergola.webp',
+      gallery: ['/img/metal/pergola.webp', '/img/metal/servicio-metal.webp', '/img/carpinteria/carpinteria.webp']
     },
 
     // Tablaroca
@@ -119,8 +119,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Plafón Decorativo con Iluminación',
       description: 'Instalación de plafón en drywall con nichos para iluminación LED indirecta, acabado nivel 5.',
       location: 'Metepec, Estado de México',
-      image: '/img/tablaroca/tablaroca.png',
-      gallery: ['/img/tablaroca/tablaroca.png', '/img/tablaroca/tablaroca-servicios.png', '/img/servicios/remodelacion.png']
+      image: '/img/tablaroca/tablaroca.webp',
+      gallery: ['/img/tablaroca/tablaroca.webp', '/img/tablaroca/tablaroca-servicios.webp', '/img/servicios/remodelacion.webp']
     },
     {
       id: 5,
@@ -128,8 +128,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'División de Oficinas',
       description: 'Muros divisorios en tablaroca con aislamiento acústico para oficinas corporativas.',
       location: 'CDMX',
-      image: '/img/tablaroca/tablaroca-servicios.png',
-      gallery: ['/img/tablaroca/tablaroca-servicios.png', '/img/tablaroca/tablaroca.png', '/img/escritorios/cafe/mueblecafe5.jpeg']
+      image: '/img/tablaroca/tablaroca-servicios.webp',
+      gallery: ['/img/tablaroca/tablaroca-servicios.webp', '/img/tablaroca/tablaroca.webp', '/img/escritorios/cafe/mueblecafe5.jpeg']
     },
     {
       id: 6,
@@ -137,8 +137,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Muro con Nichos Decorativos',
       description: 'Muro de tablaroca con nichos iluminados para exhibición, acabado fino listo para pintura.',
       location: 'Toluca, Estado de México',
-      image: '/img/tablaroca/tablaroca.png',
-      gallery: ['/img/tablaroca/tablaroca.png', '/img/tablaroca/tablaroca-servicios.png', '/img/servicios/muebles2.png']
+      image: '/img/tablaroca/tablaroca.webp',
+      gallery: ['/img/tablaroca/tablaroca.webp', '/img/tablaroca/tablaroca-servicios.webp', '/img/servicios/muebles2.webp']
     },
 
     // Impermeabilización
@@ -148,8 +148,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Impermeabilización de Azotea 200m²',
       description: 'Sistema de impermeabilización acrílica con malla de refuerzo, garantía de 10 años.',
       location: 'Toluca, Estado de México',
-      image: '/img/impermeabilizante/impermeabilizar.png',
-      gallery: ['/img/impermeabilizante/impermeabilizar.png', '/img/impermeabilizante/impermeabilizante.png', '/img/servicios/impermeabilizacion.png']
+      image: '/img/impermeabilizante/impermeabilizar.webp',
+      gallery: ['/img/impermeabilizante/impermeabilizar.webp', '/img/impermeabilizante/impermeabilizante.webp', '/img/servicios/impermeabilizacion.webp']
     },
     {
       id: 8,
@@ -157,8 +157,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Reparación de Filtraciones',
       description: 'Ranurado de grietas y aplicación de membrana prefabricada en losa con problemas de filtración.',
       location: 'CDMX',
-      image: '/img/servicios/impermeabilizacion.png',
-      gallery: ['/img/servicios/impermeabilizacion.png', '/img/servicios/impermeabilizacion1.png', '/img/impermeabilizante/impermeabilizar.png']
+      image: '/img/servicios/impermeabilizacion.webp',
+      gallery: ['/img/servicios/impermeabilizacion.webp', '/img/servicios/impermeabilizacion1.webp', '/img/impermeabilizante/impermeabilizar.webp']
     },
     {
       id: 9,
@@ -166,8 +166,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Impermeabilización de Terraza',
       description: 'Sistema integral con pendientes, drenes y acabado antiderrapante para terraza transitable.',
       location: 'Metepec, Estado de México',
-      image: '/img/impermeabilizante/impermeabilizante.png',
-      gallery: ['/img/impermeabilizante/impermeabilizante.png', '/img/impermeabilizante/impermeabilizar.png', '/img/servicios/impermeabilizacion1.png']
+      image: '/img/impermeabilizante/impermeabilizante.webp',
+      gallery: ['/img/impermeabilizante/impermeabilizante.webp', '/img/impermeabilizante/impermeabilizar.webp', '/img/servicios/impermeabilizacion1.webp']
     },
 
     // Remodelación
@@ -177,8 +177,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Remodelación Integral de Casa',
       description: 'Transformación completa de espacios: sala, comedor, recámaras con acabados premium.',
       location: 'Toluca, Estado de México',
-      image: '/img/remodelacion-integral/remodelacion-integral.png',
-      gallery: ['/img/remodelacion-integral/remodelacion-integral.png', '/img/servicios/remodelacion.png', '/img/servicios/cocina.png', '/img/servicios/muebles.png']
+      image: '/img/remodelacion-integral/remodelacion-integral.webp',
+      gallery: ['/img/remodelacion-integral/remodelacion-integral.webp', '/img/servicios/remodelacion.webp', '/img/servicios/cocina.webp', '/img/servicios/muebles.webp']
     },
     {
       id: 11,
@@ -186,8 +186,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Cocina Integral Moderna',
       description: 'Remodelación completa de cocina con gabinetes, isla central, iluminación y acabados premium.',
       location: 'CDMX',
-      image: '/img/servicios/cocina.png',
-      gallery: ['/img/servicios/cocina.png', '/img/servicios/muebles.png', '/img/servicios/muebles2.png', '/img/carpinteria/carpinteria.png']
+      image: '/img/servicios/cocina.webp',
+      gallery: ['/img/servicios/cocina.webp', '/img/servicios/muebles.webp', '/img/servicios/muebles2.webp', '/img/carpinteria/carpinteria.webp']
     },
     {
       id: 12,
@@ -204,8 +204,8 @@ const ProjectsContent = ({ servicioInicial }) => {
       title: 'Carpintería Residencial',
       description: 'Fabricación de muebles a medida para diferentes espacios del hogar con materiales de primera.',
       location: 'Toluca, Estado de México',
-      image: '/img/carpinteria/carpinteria.png',
-      gallery: ['/img/carpinteria/carpinteria.png', '/img/servicios/muebles2.png', '/img/servicios/muebles.png', '/img/escritorios/cafe/mueblecafe4.jpeg']
+      image: '/img/carpinteria/carpinteria.webp',
+      gallery: ['/img/carpinteria/carpinteria.webp', '/img/servicios/muebles2.webp', '/img/servicios/muebles.webp', '/img/escritorios/cafe/mueblecafe4.jpeg']
     },
     {
       id: 14,

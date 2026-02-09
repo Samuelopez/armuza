@@ -21,7 +21,7 @@ const Services = () => {
       title: 'Metal & Forja Arquitectónica',
       description: 'Estructuras metálicas de diseño exclusivo. Portones, barandales, escaleras y pérgolas con acabados premium.',
       features: ['Portones automatizados', 'Barandales de lujo', 'Escaleras metálicas', 'Pérgolas y techados'],
-      imgUrl: "/img/metal/servicio-metal.png"
+      imgUrl: "/img/metal/servicio-metal.webp"
     },
     {
       id: 'tablaroca',
@@ -29,7 +29,7 @@ const Services = () => {
       title: 'Tablaroca & Acabados',
       description: 'Instalación profesional de drywall con 5 niveles de acabado. Divisiones, plafones y muros de alta calidad.',
       features: ['Acabados Etapa 1-5', 'Divisiones modulares', 'Plafones decorativos', 'Aislamiento acústico'],
-      imgUrl: "/img/tablaroca/tablaroca-servicios.png"
+      imgUrl: "/img/tablaroca/tablaroca-servicios.webp"
     },
     {
       id: 'impermeabilizacion',
@@ -37,7 +37,7 @@ const Services = () => {
       title: 'Impermeabilización Profesional',
       description: 'Protección total contra filtraciones. Sistemas acrílicos, ranurado de grietas y membranas prefabricadas.',
       features: ['Impermeabilización acrílica', 'Ranurado de grietas', 'Membrana prefabricada', 'Garantía hasta 15 años'],
-      imgUrl: "/img/impermeabilizante/impermeabilizar.png"
+      imgUrl: "/img/impermeabilizante/impermeabilizar.webp"
     },
     {
       id: 'remodelacion',
@@ -45,7 +45,7 @@ const Services = () => {
       title: 'Remodelación Integral',
       description: 'Transformamos cualquier espacio. Baños, cocinas, recámaras y proyectos comerciales completos.',
       features: ['Baños tipo spa', 'Remodelación comercial', 'Ampliaciones', 'Proyectos integrales'],
-      imgUrl: "/img/remodelacion-integral/remodelacion-integral.png"
+      imgUrl: "/img/remodelacion-integral/remodelacion-integral.webp"
     }
   ];
 
