@@ -91,10 +91,13 @@ const TeamSection = () => {
               className="glass-effect rounded-2xl p-0 metallic-border subtle-shine h-full flex flex-col text-center overflow-hidden"
             >
                <div className="relative h-64 w-full">
-                 <img 
+                 <img
                   alt={member.name + ", " + member.role}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                   src={member.imgUrl}
+                  width={400}
+                  height={256}
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                  <motion.div 

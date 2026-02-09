@@ -3029,6 +3029,8 @@ const ProductDetail = ({ productId }) => {
                     transition={{ duration: 0.2 }}
                     src={product.gallery[activeImage]}
                     alt={product.name}
+                    width={500}
+                    height={500}
                     className="w-full h-full object-cover"
                   />
                 </AnimatePresence>
@@ -3089,6 +3091,8 @@ const ProductDetail = ({ productId }) => {
                     transition={{ duration: 0.2 }}
                     src={product.gallery[activeImage]}
                     alt={product.name}
+                    width={600}
+                    height={600}
                     className="w-full h-full object-cover"
                   />
                 </AnimatePresence>
@@ -3120,6 +3124,9 @@ const ProductDetail = ({ productId }) => {
                     <img
                       src={img}
                       alt={`${product.name} ${idx + 1}`}
+                      width={80}
+                      height={80}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </motion.button>
@@ -3314,6 +3321,8 @@ const ProductDetail = ({ productId }) => {
                 <img
                   src={product.gallery[0]}
                   alt={product.name}
+                  width={80}
+                  height={80}
                   className="w-20 h-20 object-cover rounded-lg"
                 />
                 <div>

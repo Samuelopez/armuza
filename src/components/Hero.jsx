@@ -66,6 +66,8 @@ const Hero = () => {
           <img
             src={serviceImages[currentImageIndex]}
             alt={`Servicio ${currentImageIndex + 1}`}
+            width={1920}
+            height={1080}
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -103,6 +105,8 @@ const Hero = () => {
             <img
               src="/img/logo.png"
               alt="Logo ARMUZA"
+              width={96}
+              height={96}
               className="w-24 h-24 object-contain"
             />
           </motion.div>

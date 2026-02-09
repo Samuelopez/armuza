@@ -167,6 +167,9 @@ const Services = () => {
                   <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                     <img
                       alt={service.title}
+                      width={600}
+                      height={400}
+                      loading="lazy"
                       className="w-full h-64 md:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       src={service.imgUrl}
                     />

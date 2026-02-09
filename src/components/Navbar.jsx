@@ -65,6 +65,8 @@ const Navbar = () => {
               <img
                 src="/img/logo.png"
                 alt="ARMUZA Logo"
+                width={32}
+                height={32}
                 className="w-8 h-8 object-contain group-hover:scale-110 transition-transform duration-300"
               />
               <span className="text-2xl font-bold text-white tracking-wider group-hover:brightness-125 transition-all">

@@ -247,6 +247,9 @@ const ServicesPreview = () => {
                     <div className="relative h-56 md:h-40 w-full">
                       <img
                         alt={item.title}
+                        width={500}
+                        height={400}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                         src={item.imgUrl}
                         onError={(e) => {

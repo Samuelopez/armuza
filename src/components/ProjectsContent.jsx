@@ -356,6 +356,9 @@ const ProjectsContent = ({ servicioInicial }) => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    width={500}
+                    height={300}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -523,6 +526,9 @@ const ProjectsContent = ({ servicioInicial }) => {
                           <img
                             src={img}
                             alt={`${selectedProject.title} ${idx + 1}`}
+                            width={96}
+                            height={96}
+                            loading="lazy"
                             className="w-20 h-20 md:w-24 md:h-24 object-cover"
                           />
                           {activeImage === idx && (

@@ -469,6 +469,8 @@ const CheckoutContent = () => {
                   <img
                     src={orderData.productImage}
                     alt={orderData.productName}
+                    width={80}
+                    height={80}
                     className="w-20 h-20 object-cover rounded-lg"
                   />
                 )}

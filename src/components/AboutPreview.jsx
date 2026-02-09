@@ -33,6 +33,9 @@ const AboutPreview = () => {
               className="w-full h-auto max-h-[550px] object-cover rounded-xl"
               alt="Equipo ARMUZA colaborando en un proyecto de diseño de interiores, con planos y muestras de materiales"
               src="/img/3años.png"
+              width={800}
+              height={550}
+              loading="lazy"
             />
             <motion.div
               className="absolute -bottom-5 -left-5 w-24 h-24 bg-gold-gradient rounded-full flex items-center justify-center text-primary shadow-xl"

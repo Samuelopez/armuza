@@ -138,10 +138,13 @@ const About = () => {
 
           <motion.div variants={imageVariants} className="relative group">
             <div className="floating-animation">
-               <img 
-                className="w-full h-auto max-h-[500px] object-cover rounded-2xl glass-effect golden-glow shadow-2xl metallic-border" 
+               <img
+                className="w-full h-auto max-h-[500px] object-cover rounded-2xl glass-effect golden-glow shadow-2xl metallic-border"
                 alt="Taller de diseño ARMUZA con planos y muestras de materiales de alta calidad y herramientas de precisión"
                 src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3"
+                width={800}
+                height={500}
+                loading="lazy"
               />
             </div>
             <motion.div
