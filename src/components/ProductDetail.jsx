@@ -2827,13 +2827,13 @@ const ProductDetail = ({ productId }) => {
       let searchText = shippingAddress.trim();
       // Si es solo un código postal, agregar contexto
       if (/^\d{5}$/.test(searchText)) {
-        searchText = `CP ${searchText}, México`;
-      } else if (!searchText.toLowerCase().includes('méxico') && !searchText.toLowerCase().includes('mexico')) {
-        searchText = `${searchText}, México`;
+        searchText = `${searchText}, Estado de México, México`;
       }
 
       // Paso 1: Geocodificar la dirección del cliente
-      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&size=1`;
+      // Limitar búsqueda a zona centro de México (CDMX, Estado de México, Morelos, etc.)
+      // boundary.rect: min_lon, min_lat, max_lon, max_lat
+      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&boundary.rect.min_lon=-100.5&boundary.rect.min_lat=18.5&boundary.rect.max_lon=-98.5&boundary.rect.max_lat=20.5&size=5`;
 
       const geocodeResponse = await fetch(geocodeUrl);
       const geocodeData = await geocodeResponse.json();
@@ -2847,8 +2847,27 @@ const ProductDetail = ({ productId }) => {
         return;
       }
 
-      const destCoords = geocodeData.features[0].geometry.coordinates; // [lon, lat]
-      const destName = geocodeData.features[0].properties.label;
+      // Seleccionar el resultado más cercano al origen (dentro de la zona de servicio)
+      let bestResult = geocodeData.features[0];
+      let bestDistance = Infinity;
+
+      for (const feature of geocodeData.features) {
+        const coords = feature.geometry.coordinates;
+        const dist = calculateHaversineDistance(
+          SHIPPING_CONFIG.originCoords[1],
+          SHIPPING_CONFIG.originCoords[0],
+          coords[1],
+          coords[0]
+        );
+        // Preferir resultados que estén dentro de un rango razonable (200km) y más cercanos
+        if (dist < bestDistance && dist < 200) {
+          bestDistance = dist;
+          bestResult = feature;
+        }
+      }
+
+      const destCoords = bestResult.geometry.coordinates; // [lon, lat]
+      const destName = bestResult.properties.label;
 
       // Paso 2: Intentar calcular ruta, si falla usar distancia en línea recta
       let distanceKm;
