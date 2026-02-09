@@ -3356,7 +3356,7 @@ const ProductDetail = ({ productId }) => {
                         <p className="text-sm text-subtle">Costo de envío{shippingResult.approximate ? ' estimado' : ''}:</p>
                         <p className="text-2xl font-bold text-highlight">${shippingResult.cost} MXN</p>
                       </div>
-                      <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&envio=${shippingResult.cost}&distancia=${shippingResult.distance}`}>
+                      <Link href={`/checkout?producto=${encodeURIComponent(product.name)}&precio=${encodeURIComponent(product.price)}&imagen=${encodeURIComponent(product.gallery[0])}&id=${product.id}&envio=${shippingResult.cost}&distancia=${shippingResult.distance}&direccion=${encodeURIComponent(shippingResult.location)}`}>
                         <motion.button
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
