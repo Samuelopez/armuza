@@ -231,21 +231,21 @@ const CheckoutContent = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/productos" className="flex-1">
+            <div className="flex flex-row gap-3 justify-center">
+              <Link href="/productos">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-highlight text-white py-3 rounded-xl font-semibold"
+                  className="bg-highlight text-white px-5 py-2.5 rounded-lg font-semibold text-sm"
                 >
                   Seguir Comprando
                 </motion.button>
               </Link>
-              <Link href="/" className="flex-1">
+              <Link href="/">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-card border border-border text-main py-3 rounded-xl font-semibold"
+                  className="bg-card border border-border text-main px-5 py-2.5 rounded-lg font-semibold text-sm"
                 >
                   Ir al Inicio
                 </motion.button>
@@ -425,23 +425,23 @@ const CheckoutContent = () => {
                 </div>
 
                 {/* Botón de pago en móvil */}
-                <div className="lg:hidden mt-6">
+                <div className="lg:hidden mt-6 flex justify-center">
                   <motion.button
                     type="submit"
                     disabled={processing}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-gold-gradient text-primary py-4 rounded-xl font-bold text-lg shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="bg-gold-gradient text-primary px-6 py-3 rounded-lg font-bold text-sm shadow-lg disabled:opacity-50 flex items-center gap-2"
                   >
                     {processing ? (
                       <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
+                        <Loader2 className="w-4 h-4 animate-spin" />
                         Procesando...
                       </>
                     ) : (
                       <>
-                        <CreditCard className="w-5 h-5" />
-                        Confirmar Pedido - ${total.toLocaleString()} MXN
+                        <CreditCard className="w-4 h-4" />
+                        Confirmar - ${total.toLocaleString()} MXN
                       </>
                     )}
                   </motion.button>
@@ -496,13 +496,13 @@ const CheckoutContent = () => {
               </div>
 
               {/* Botón de pago en desktop */}
-              <div className="hidden lg:block">
+              <div className="hidden lg:flex lg:justify-center">
                 <motion.button
                   onClick={handleSubmit}
                   disabled={processing}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gold-gradient text-primary py-4 rounded-xl font-bold text-lg shadow-lg disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="bg-gold-gradient text-primary px-8 py-3 rounded-lg font-bold text-base shadow-lg disabled:opacity-50 flex items-center gap-2"
                 >
                   {processing ? (
                     <>

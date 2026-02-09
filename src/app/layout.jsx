@@ -2,6 +2,7 @@ import './globals.css';
 import { Providers } from './providers';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata = {
   title: 'ARMUZA | Remodelación y Diseño de Interiores',
@@ -47,6 +48,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
           <Footer />
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>

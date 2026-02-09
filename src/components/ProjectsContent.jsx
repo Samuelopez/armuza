@@ -20,6 +20,11 @@ const ProjectsContent = ({ servicioInicial }) => {
   const [activeFilter, setActiveFilter] = useState(servicioInicial || 'todos');
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeImage, setActiveImage] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Mínimo de distancia para considerar como swipe
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     if (servicioInicial) {
@@ -31,6 +36,42 @@ const ProjectsContent = ({ servicioInicial }) => {
   const handleSelectProject = (project) => {
     setSelectedProject(project);
     setActiveImage(0);
+  };
+
+  // Navegación de imágenes
+  const nextImage = () => {
+    if (selectedProject) {
+      setActiveImage((prev) => (prev + 1) % selectedProject.gallery.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedProject) {
+      setActiveImage((prev) => (prev - 1 + selectedProject.gallery.length) % selectedProject.gallery.length);
+    }
+  };
+
+  // Handlers para swipe táctil
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      prevImage();
+    }
   };
 
   const filters = [
@@ -396,7 +437,12 @@ const ProjectsContent = ({ servicioInicial }) => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Imagen principal */}
-              <div className="relative h-64 md:h-80">
+              <div
+                className="relative h-64 md:h-80"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeImage}
@@ -409,6 +455,25 @@ const ProjectsContent = ({ servicioInicial }) => {
                     className="w-full h-full object-cover"
                   />
                 </AnimatePresence>
+
+                {/* Flechas de navegación */}
+                {selectedProject.gallery.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </>
+                )}
+
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
@@ -472,19 +537,19 @@ const ProjectsContent = ({ servicioInicial }) => {
                   </div>
                 )}
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href={`/contacto?servicio=${selectedProject.service}`} className="flex-1">
+                <div className="flex flex-row gap-3 justify-center">
+                  <Link href={`/contacto?servicio=${selectedProject.service}`}>
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-highlight hover:bg-highlight/90 text-white px-6 py-3 rounded-xl font-semibold transition-all"
+                      className="bg-highlight hover:bg-highlight/90 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
                     >
                       Quiero algo similar
                     </motion.button>
                   </Link>
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="flex-1 bg-card border border-border hover:bg-card/80 text-main px-6 py-3 rounded-xl font-semibold transition-all"
+                    className="bg-card border border-border hover:bg-card/80 text-main px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
                   >
                     Cerrar
                   </button>

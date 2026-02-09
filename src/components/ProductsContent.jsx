@@ -721,19 +721,21 @@ const ProductsContent = ({ productoInicial }) => {
                   </div>
                 )}
 
-                <div className="h-52 overflow-hidden relative">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="inline-block bg-gold-gradient text-primary text-sm font-bold px-3 py-1 rounded-full">
-                      {item.price}
-                    </span>
+                <Link href={`/productos/${generateProductId(item.name)}`}>
+                  <div className="h-52 overflow-hidden relative cursor-pointer">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="inline-block bg-gold-gradient text-primary text-sm font-bold px-3 py-1 rounded-full">
+                        {item.price}
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
 
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-main mb-2 group-hover:text-highlight transition-colors duration-300">
@@ -742,11 +744,11 @@ const ProductsContent = ({ productoInicial }) => {
                   <p className="text-subtle text-sm leading-relaxed mb-4 line-clamp-2">
                     {item.description}
                   </p>
-                  <Link href={`/productos/${generateProductId(item.name)}`}>
+                  <Link href={`/productos/${generateProductId(item.name)}`} className="inline-block">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full bg-highlight hover:bg-highlight/90 text-white px-4 py-3 rounded-xl transition-all duration-300 font-semibold text-sm flex items-center justify-center gap-2"
+                      className="bg-highlight hover:bg-highlight/90 text-white px-4 py-2.5 rounded-lg transition-all duration-300 font-semibold text-sm flex items-center gap-2"
                     >
                       Ver Producto
                       <ChevronRight className="w-4 h-4" />

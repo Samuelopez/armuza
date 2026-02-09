@@ -158,30 +158,32 @@ const Services = () => {
               </div>
 
               {/* Imagen */}
-              <motion.div
-                className="w-full lg:w-1/2 relative group"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                  <img
-                    alt={service.title}
-                    className="w-full h-64 md:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    src={service.imgUrl}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              <Link href={`/proyectos?servicio=${service.id}`} className="w-full lg:w-1/2">
+                <motion.div
+                  className="relative group cursor-pointer"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                    <img
+                      alt={service.title}
+                      className="w-full h-64 md:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      src={service.imgUrl}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 
-                  {/* Icono flotante */}
-                  <motion.div
-                    initial={{ rotate: 0 }}
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute bottom-6 right-6 w-16 h-16 bg-gold-gradient rounded-2xl flex items-center justify-center shadow-xl"
-                  >
-                    <service.icon className="w-8 h-8 text-primary" />
-                  </motion.div>
-                </div>
-              </motion.div>
+                    {/* Icono flotante */}
+                    <motion.div
+                      initial={{ rotate: 0 }}
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute bottom-6 right-6 w-16 h-16 bg-gold-gradient rounded-2xl flex items-center justify-center shadow-xl"
+                    >
+                      <service.icon className="w-8 h-8 text-primary" />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </Link>
 
               {/* Contenido */}
               <div className="w-full lg:w-1/2 space-y-6">
@@ -242,14 +244,14 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.6 }}
                   viewport={{ once: true }}
-                  className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+                  className="flex flex-row gap-2 sm:gap-3 justify-center lg:justify-start"
                 >
                   <Link href={`/proyectos?servicio=${service.id}`}>
                     <Button
-                      className="w-full sm:w-auto bg-highlight hover:bg-highlight/90 text-white px-6 py-5 rounded-xl text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                      className="bg-highlight hover:bg-highlight/90 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                     >
                       Ver Proyectos
-                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-1.5 sm:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </Button>
@@ -257,10 +259,10 @@ const Services = () => {
                   <Link href={`/contacto?servicio=${service.id}`}>
                     <Button
                       variant="outline"
-                      className="w-full sm:w-auto border-2 border-highlight text-highlight hover:bg-highlight hover:text-white px-6 py-5 rounded-xl text-base font-semibold transition-all duration-300 hover:scale-105"
+                      className="border-2 border-highlight text-highlight hover:bg-highlight hover:text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-105"
                     >
-                      Platícanos tu Idea
-                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      Cotizar
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-1.5 sm:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                       </svg>
                     </Button>

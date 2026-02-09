@@ -2770,6 +2770,11 @@ const ProductDetail = ({ productId }) => {
   const [shippingAddress, setShippingAddress] = useState('');
   const [shippingResult, setShippingResult] = useState(null);
   const [calculatingShipping, setCalculatingShipping] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Mínimo de distancia para considerar como swipe
+  const minSwipeDistance = 50;
 
   useEffect(() => {
     // Buscar producto por ID
@@ -2791,6 +2796,29 @@ const ProductDetail = ({ productId }) => {
   const prevImage = () => {
     if (product) {
       setActiveImage((prev) => (prev - 1 + product.gallery.length) % product.gallery.length);
+    }
+  };
+
+  // Handlers para swipe táctil
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    } else if (isRightSwipe) {
+      prevImage();
     }
   };
 
@@ -2986,7 +3014,12 @@ const ProductDetail = ({ productId }) => {
           >
             {/* Mobile: Carrusel */}
             <div className="lg:hidden relative">
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-card">
+              <div
+                className="relative aspect-square rounded-2xl overflow-hidden bg-card"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeImage}
@@ -3041,7 +3074,12 @@ const ProductDetail = ({ productId }) => {
             {/* Desktop: Galería con miniaturas */}
             <div className="hidden lg:block">
               {/* Imagen principal */}
-              <div className="relative aspect-square rounded-2xl overflow-hidden bg-card mb-4">
+              <div
+                className="relative aspect-square rounded-2xl overflow-hidden bg-card mb-4"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={activeImage}
@@ -3306,25 +3344,27 @@ const ProductDetail = ({ productId }) => {
               </div>
 
               {/* Botón calcular */}
-              <motion.button
-                onClick={calculateShipping}
-                disabled={calculatingShipping || !shippingAddress.trim()}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-highlight text-white py-3 rounded-xl font-semibold mb-4 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-              >
-                {calculatingShipping ? (
-                  <>
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Calculando...
-                  </>
-                ) : (
-                  <>
-                    <Truck className="w-5 h-5" />
-                    Calcular Envío
-                  </>
-                )}
-              </motion.button>
+              <div className="flex justify-center mb-4">
+                <motion.button
+                  onClick={calculateShipping}
+                  disabled={calculatingShipping || !shippingAddress.trim()}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-highlight text-white px-6 py-2.5 rounded-lg font-semibold text-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                  {calculatingShipping ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      Calculando...
+                    </>
+                  ) : (
+                    <>
+                      <Truck className="w-4 h-4" />
+                      Calcular Envío
+                    </>
+                  )}
+                </motion.button>
+              </div>
 
               {/* Resultado */}
               {shippingResult && (
@@ -3356,15 +3396,17 @@ const ProductDetail = ({ productId }) => {
                         <p className="text-sm text-subtle">Costo de envío{shippingResult.approximate ? ' estimado' : ''}:</p>
                         <p className="text-2xl font-bold text-highlight">${shippingResult.cost} MXN</p>
                       </div>
-                      <Link href={`/checkout?producto=${encodeURIComponent(product.name)}&precio=${encodeURIComponent(product.price)}&imagen=${encodeURIComponent(product.gallery[0])}&id=${product.id}&envio=${shippingResult.cost}&distancia=${shippingResult.distance}&direccion=${encodeURIComponent(shippingResult.location)}`}>
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full bg-gold-gradient text-primary py-3 rounded-xl font-bold"
-                        >
-                          Continuar con la Compra
-                        </motion.button>
-                      </Link>
+                      <div className="flex justify-center">
+                        <Link href={`/checkout?producto=${encodeURIComponent(product.name)}&precio=${encodeURIComponent(product.price)}&imagen=${encodeURIComponent(product.gallery[0])}&id=${product.id}&envio=${shippingResult.cost}&distancia=${shippingResult.distance}&direccion=${encodeURIComponent(shippingResult.location)}`}>
+                          <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-gold-gradient text-primary px-5 py-2.5 rounded-lg font-bold text-sm"
+                          >
+                            Continuar con la Compra
+                          </motion.button>
+                        </Link>
+                      </div>
                     </>
                   ) : shippingResult.outOfZone ? (
                     <>
@@ -3378,15 +3420,17 @@ const ProductDetail = ({ productId }) => {
                       <p className="text-sm text-subtle mb-3">
                         Tu ubicación está a {shippingResult.distance} km. Nuestro límite de entrega es de {SHIPPING_CONFIG.maxDistance} km.
                       </p>
-                      <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&mensaje=Estoy fuera de zona (${shippingResult.distance}km), solicito cotización especial`}>
-                        <motion.button
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="w-full bg-amber-500 text-white py-3 rounded-xl font-semibold"
-                        >
-                          Solicitar Cotización Especial
-                        </motion.button>
-                      </Link>
+                      <div className="flex justify-center">
+                        <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&mensaje=Estoy fuera de zona (${shippingResult.distance}km), solicito cotización especial`}>
+                          <motion.button
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-amber-500 text-white px-5 py-2.5 rounded-lg font-semibold text-sm"
+                          >
+                            Solicitar Cotización Especial
+                          </motion.button>
+                        </Link>
+                      </div>
                     </>
                   ) : (
                     <>

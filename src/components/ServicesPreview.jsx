@@ -18,6 +18,11 @@ import Link from 'next/link';
 const ServicesPreview = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Mínimo de distancia para considerar como swipe
+  const minSwipeDistance = 50;
 
   const items = [
     {
@@ -97,6 +102,29 @@ const ServicesPreview = () => {
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
+  };
+
+  // Handlers para swipe táctil
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
   };
 
   const getCurrentItems = () => {
@@ -202,7 +230,10 @@ const ServicesPreview = () => {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className={`grid gap-6 px-8 md:px-0
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+              className={`grid gap-6 px-8 md:px-0 touch-pan-y
                 ${isMobile ? 'grid-cols-1' : 'grid-cols-2 lg:grid-cols-5'}`}
             >
               {getCurrentItems().map((item, index) => (
