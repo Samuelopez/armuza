@@ -28,14 +28,23 @@ const Footer = () => {
 
   const quickLinks = [
     { label: 'Inicio', path: '/' },
+    { label: 'Productos', path: '/productos' },
     { label: 'Servicios', path: '/servicios' },
+    { label: 'Proyectos', path: '/proyectos' },
     { label: 'Nosotros', path: '/nosotros' },
     { label: 'Contacto', path: '/contacto' },
   ];
 
+  const products = [
+    { id: 'sala', label: 'Sala' },
+    { id: 'comedor', label: 'Comedor' },
+    { id: 'recamara', label: 'Recámara' },
+    { id: 'cocina', label: 'Cocina' },
+    { id: 'oficina', label: 'Oficina' },
+  ];
+
   const services = [
-    { id: 'metal', label: 'Metal & Forja Arquitectónica' },
-    { id: 'carpinteria', label: 'Carpintería de Diseño' },
+    { id: 'metal', label: 'Metal & Forja' },
     { id: 'tablaroca', label: 'Tablaroca & Acabados' },
     { id: 'impermeabilizacion', label: 'Impermeabilización' },
     { id: 'remodelacion', label: 'Remodelación Integral' },
@@ -145,8 +154,28 @@ const Footer = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <span className="text-xl font-bold text-highlight mb-6 block metallic-sheen-light">Nuestros Servicios</span>
-            <ul className="space-y-3">
+            <span className="text-xl font-bold text-highlight mb-4 block metallic-sheen-light">Productos</span>
+            <ul className="space-y-2 mb-6">
+              {products.map((product, index) => (
+                <motion.li
+                  key={product.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    href={`/productos?producto=${product.id}`}
+                    className="text-subtle hover:text-highlight transition-colors duration-300 cursor-pointer hover:translate-x-1 transform flex items-center group text-sm"
+                  >
+                    <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
+                    {product.label}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+            <span className="text-xl font-bold text-highlight mb-4 block metallic-sheen-light">Servicios</span>
+            <ul className="space-y-2">
               {services.map((service, index) => (
                 <motion.li
                   key={service.id}
@@ -156,7 +185,7 @@ const Footer = () => {
                   viewport={{ once: true }}
                 >
                   <Link
-                    href={`/catalogo?servicio=${service.id}`}
+                    href="/servicios"
                     className="text-subtle hover:text-highlight transition-colors duration-300 cursor-pointer hover:translate-x-1 transform flex items-center group text-sm"
                   >
                     <ChevronRight className="w-4 h-4 mr-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-highlight" />
@@ -164,16 +193,6 @@ const Footer = () => {
                   </Link>
                 </motion.li>
               ))}
-              <motion.li
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
-                viewport={{ once: true }}
-              >
-                <Link href="/catalogo" className="text-highlight hover:text-highlight/80 font-bold transition-colors duration-300 flex items-center group text-sm">
-                  Ver catálogo <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </motion.li>
             </ul>
           </motion.div>
 

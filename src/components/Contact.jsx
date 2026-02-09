@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import { 
-  Phone,    
-  Mail,  
-  MapPin, 
-  Clock, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
   Send,
   MessageCircle,
   Star,
@@ -16,16 +16,34 @@ import {
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 
-const Contact = () => {
+const Contact = ({ servicioInicial }) => {
+  // Mapeo de IDs de servicio a nombres legibles
+  const serviceMap = {
+    'metal': 'Metal & Forja Arquitectónica',
+    'tablaroca': 'Tablaroca & Acabados',
+    'impermeabilizacion': 'Impermeabilización',
+    'remodelacion': 'Remodelación Integral',
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    service: '',
+    service: servicioInicial ? (serviceMap[servicioInicial] || '') : '',
     message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Actualizar servicio si viene de URL
+  useEffect(() => {
+    if (servicioInicial && serviceMap[servicioInicial]) {
+      setFormData(prev => ({
+        ...prev,
+        service: serviceMap[servicioInicial]
+      }));
+    }
+  }, [servicioInicial]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -90,8 +108,13 @@ const Contact = () => {
   ];
 
   const services = [
-    'Muebles Personalizados', 'Cocinas Integrales', 'Remodelaciones Completas', 
-    'Impermeabilización Avanzada', 'Acabados Premium', 'Mantenimiento Integral', 'Consultoría de Diseño'
+    'Metal & Forja Arquitectónica',
+    'Tablaroca & Acabados',
+    'Impermeabilización',
+    'Remodelación Integral',
+    'Muebles Personalizados',
+    'Cocinas Integrales',
+    'Otro / Consulta General'
   ];
 
   const sectionVariants = {
@@ -105,21 +128,14 @@ const Contact = () => {
   };
 
   return (
-    <motion.section 
-      id="contacto" 
+    <motion.section
+      id="contacto"
       className="py-20 relative overflow-hidden bg-main"
       variants={sectionVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
     >
-      <div className="absolute inset-0 opacity-20 dark:opacity-10">
-        <motion.div 
-          className="absolute top-0 right-0 w-1/2 h-3/4 bg-gradient-to-bl from-accent to-transparent rounded-full filter blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.6, 0.9, 0.6] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div variants={itemVariants} className="text-center mb-16">

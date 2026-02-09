@@ -1,14 +1,13 @@
 'use client';
 
-import Contact from '@/components/Contact';
-import FAQSection from '@/components/FAQSection';
+import ProductsContent from '@/components/ProductsContent';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 
-function ContactPageContent() {
+function ProductosPageContent() {
   const searchParams = useSearchParams();
-  const servicioInicial = searchParams.get('servicio');
+  const productoInicial = searchParams.get('producto');
 
   return (
     <motion.div
@@ -16,18 +15,16 @@ function ContactPageContent() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5 }}
-      className=""
     >
-      <Contact servicioInicial={servicioInicial} />
-      <FAQSection />
+      <ProductsContent productoInicial={productoInicial} />
     </motion.div>
   );
 }
 
-export default function ContactPage() {
+export default function Productos() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-main" />}>
-      <ContactPageContent />
+      <ProductosPageContent />
     </Suspense>
   );
 }

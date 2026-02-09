@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Hammer,
-  Sofa,
   Layers,
   Droplets,
   Home,
@@ -17,39 +16,36 @@ import Link from 'next/link';
 const Services = () => {
   const services = [
     {
+      id: 'metal',
       icon: Hammer,
       title: 'Metal & Forja Arquitectónica',
       description: 'Estructuras metálicas de diseño exclusivo. Portones, barandales, escaleras y pérgolas con acabados premium.',
-      features: ['Portones automatizados', 'Barandales de lujo', 'Escaleras de diseño', 'Herrería decorativa'],
-      imgUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+      features: ['Portones automatizados', 'Barandales de lujo', 'Escaleras metálicas', 'Pérgolas y techados'],
+      imgUrl: "/img/metal/servicio-metal.png"
     },
     {
-      icon: Sofa,
-      title: 'Carpintería de Diseño',
-      description: 'Muebles por catálogo fabricados con materiales premium. Desde escritorios ejecutivos hasta cocinas integrales.',
-      features: ['Escritorios ejecutivos', 'Cocinas integrales', 'Closets y vestidores', 'Puertas y camas'],
-      imgUrl: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-    },
-    {
+      id: 'tablaroca',
       icon: Layers,
       title: 'Tablaroca & Acabados',
       description: 'Instalación profesional de drywall con 5 niveles de acabado. Divisiones, plafones y muros de alta calidad.',
       features: ['Acabados Etapa 1-5', 'Divisiones modulares', 'Plafones decorativos', 'Aislamiento acústico'],
-      imgUrl: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+      imgUrl: "/img/tablaroca/tablaroca-servicios.png"
     },
     {
+      id: 'impermeabilizacion',
       icon: Droplets,
       title: 'Impermeabilización Profesional',
       description: 'Protección total contra filtraciones. Sistemas acrílicos, ranurado de grietas y membranas prefabricadas.',
       features: ['Impermeabilización acrílica', 'Ranurado de grietas', 'Membrana prefabricada', 'Garantía hasta 15 años'],
-      imgUrl: "https://images.unsplash.com/photo-1621115937174-e2e6f81df229?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+      imgUrl: "/img/impermeabilizante/impermeabilizar.png"
     },
     {
+      id: 'remodelacion',
       icon: Home,
       title: 'Remodelación Integral',
       description: 'Transformamos cualquier espacio. Baños, cocinas, recámaras y proyectos comerciales completos.',
       features: ['Baños tipo spa', 'Remodelación comercial', 'Ampliaciones', 'Proyectos integrales'],
-      imgUrl: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+      imgUrl: "/img/remodelacion-integral/remodelacion-integral.png"
     }
   ];
 
@@ -120,75 +116,160 @@ const Services = () => {
           </motion.div>
 
           <h1 className="text-4xl md:text-5xl font-bold text-main mb-6 tracking-tight">
-            Soluciones <span className="gradient-text">Integrales y Profesionales</span>
+            Servicios <span className="gradient-text">Profesionales</span>
           </h1>
 
           <p className="text-xl text-subtle max-w-3xl mx-auto leading-relaxed">
-            Cinco áreas de especialización para transformar tus espacios.
+            Cuatro áreas de especialización para transformar tus espacios.
             Calidad mundial en cada proyecto.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="space-y-20">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              variants={itemVariants}
-              whileHover="hover"
-              className={`glass-effect rounded-2xl p-0 metallic-border subtle-shine group overflow-hidden flex flex-col
-                ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.3 }}
+              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-6 lg:gap-12 items-center`}
             >
-              <div className="relative h-48 w-full">
-                <img
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                  src={service.imgUrl}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
-                <motion.div
-                  variants={iconContainerVariants}
-                  className="absolute top-4 right-4 w-12 h-12 bg-gold-gradient rounded-full flex items-center justify-center group-hover:pulse-glow shadow-lg"
+              {/* Título - visible primero en mobile */}
+              <div className="w-full lg:hidden text-center">
+                <motion.span
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-highlight font-semibold text-sm uppercase tracking-wider"
                 >
-                  <motion.div variants={iconVariants}>
-                    <service.icon className="w-6 h-6 text-primary" />
-                  </motion.div>
-                </motion.div>
+                  Servicio
+                </motion.span>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="text-2xl font-bold text-main mt-2"
+                >
+                  {service.title}
+                </motion.h3>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold text-main mb-4 group-hover:text-highlight transition-colors duration-300">
-                  {service.title}
-                </h3>
+              {/* Imagen */}
+              <motion.div
+                className="w-full lg:w-1/2 relative group"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img
+                    alt={service.title}
+                    className="w-full h-64 md:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    src={service.imgUrl}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
 
-                <p className="text-subtle mb-6 leading-relaxed text-sm flex-grow">
+                  {/* Icono flotante */}
+                  <motion.div
+                    initial={{ rotate: 0 }}
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute bottom-6 right-6 w-16 h-16 bg-gold-gradient rounded-2xl flex items-center justify-center shadow-xl"
+                  >
+                    <service.icon className="w-8 h-8 text-primary" />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Contenido */}
+              <div className="w-full lg:w-1/2 space-y-6">
+                {/* Título - solo visible en desktop */}
+                <div className="hidden lg:block">
+                  <motion.span
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-highlight font-semibold text-sm uppercase tracking-wider"
+                  >
+                    Servicio
+                  </motion.span>
+                  <motion.h3
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                    viewport={{ once: true }}
+                    className="text-3xl md:text-4xl font-bold text-main mt-2"
+                  >
+                    {service.title}
+                  </motion.h3>
+                </div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="text-subtle text-lg leading-relaxed"
+                >
                   {service.description}
-                </p>
+                </motion.p>
 
-                <ul className="space-y-2 mt-auto">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-2 gap-3"
+                >
                   {service.features.map((feature, featureIndex) => (
-                    <motion.li
+                    <div
                       key={featureIndex}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: featureIndex * 0.05 + 0.3, duration: 0.4 }}
-                      viewport={{ once: true }}
-                      className="flex items-center space-x-2 text-subtle text-xs"
+                      className="flex items-center gap-2 p-2 lg:p-3 rounded-xl bg-card/50 hover:bg-card transition-colors duration-300"
                     >
-                      <CheckCircle className="w-4 h-4 text-highlight/70 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </motion.li>
+                      <div className="w-6 h-6 lg:w-8 lg:h-8 rounded-lg bg-highlight/10 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="w-3 h-3 lg:w-4 lg:h-4 text-highlight" />
+                      </div>
+                      <span className="text-main text-xs lg:text-sm font-medium">{feature}</span>
+                    </div>
                   ))}
-                </ul>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+                >
+                  <Link href={`/proyectos?servicio=${service.id}`}>
+                    <Button
+                      className="w-full sm:w-auto bg-highlight hover:bg-highlight/90 text-white px-6 py-5 rounded-xl text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    >
+                      Ver Proyectos
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </Button>
+                  </Link>
+                  <Link href={`/contacto?servicio=${service.id}`}>
+                    <Button
+                      variant="outline"
+                      className="w-full sm:w-auto border-2 border-highlight text-highlight hover:bg-highlight hover:text-white px-6 py-5 rounded-xl text-base font-semibold transition-all duration-300 hover:scale-105"
+                    >
+                      Platícanos tu Idea
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                      </svg>
+                    </Button>
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}

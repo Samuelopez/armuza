@@ -19,41 +19,46 @@ const ServicesPreview = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  const services = [
+  const items = [
+    {
+      id: 'sala',
+      icon: Sofa,
+      title: 'Muebles para tu Hogar',
+      description: 'Muebles de alta calidad para sala, comedor, recámara y más. Diseños estándar y personalizados.',
+      imgUrl: "/img/servicios/muebles.png",
+      type: 'producto'
+    },
     {
       id: 'metal',
       icon: Hammer,
       title: 'Metal & Forja Arquitectónica',
-      description: 'Estructuras metálicas de diseño exclusivo. Portones, barandales, escaleras y pérgolas con acabados premium.',
-      imgUrl: "/img/servicios/metal-forja.png"
-    },
-    {
-      id: 'carpinteria',
-      icon: Sofa,
-      title: 'Carpintería de Diseño',
-      description: 'Muebles por catálogo fabricados con materiales premium. Escritorios, cocinas, closets y más.',
-      imgUrl: "/img/servicios/muebles.png"
+      description: 'Portones, barandales, escaleras y pérgolas con diseño exclusivo y acabados premium.',
+      imgUrl: "/img/metal/pergola.png",
+      type: 'servicio'
     },
     {
       id: 'tablaroca',
       icon: Layers,
       title: 'Tablaroca & Acabados',
-      description: 'Instalación profesional de drywall con 5 niveles de acabado. Divisiones y plafones de alta calidad.',
-      imgUrl: "/img/servicios/tablaroca.png"
+      description: 'Instalación profesional de drywall con 5 niveles de acabado. Divisiones y plafones.',
+      imgUrl: "/img/tablaroca/tablaroca.png",
+      type: 'servicio'
     },
     {
       id: 'impermeabilizacion',
       icon: Droplets,
-      title: 'Impermeabilización Profesional',
-      description: 'Protección total contra filtraciones. Sistemas acrílicos y membranas prefabricadas con garantía.',
-      imgUrl: "/img/servicios/impermeabilizacion.png"
+      title: 'Impermeabilización',
+      description: 'Protección total contra filtraciones. Sistemas acrílicos y membranas con garantía.',
+      imgUrl: "/img/servicios/impermeabilizacion.png",
+      type: 'servicio'
     },
     {
       id: 'remodelacion',
       icon: Home,
       title: 'Remodelación Integral',
-      description: 'Transformamos cualquier espacio. Baños, cocinas, recámaras y proyectos comerciales completos.',
-      imgUrl: "/img/servicios/remodelacion.png"
+      description: 'Transformamos cualquier espacio. Baños, cocinas, recámaras y proyectos comerciales.',
+      imgUrl: "/img/servicios/remodelacion.png",
+      type: 'servicio'
     }
   ];
 
@@ -68,8 +73,8 @@ const ServicesPreview = () => {
   }, []);
 
   // En desktop mostramos todos, en mobile usamos carrusel
-  const servicesPerSlide = isMobile ? 1 : 5;
-  const totalSlides = Math.ceil(services.length / servicesPerSlide);
+  const itemsPerSlide = isMobile ? 1 : 5;
+  const totalSlides = Math.ceil(items.length / itemsPerSlide);
 
   // Auto-play solo en mobile
   useEffect(() => {
@@ -94,10 +99,17 @@ const ServicesPreview = () => {
     setCurrentSlide(index);
   };
 
-  const getCurrentServices = () => {
-    if (!isMobile) return services;
-    const startIndex = currentSlide * servicesPerSlide;
-    return services.slice(startIndex, startIndex + servicesPerSlide);
+  const getCurrentItems = () => {
+    if (!isMobile) return items;
+    const startIndex = currentSlide * itemsPerSlide;
+    return items.slice(startIndex, startIndex + itemsPerSlide);
+  };
+
+  const getItemLink = (item) => {
+    if (item.type === 'producto') {
+      return '/productos';
+    }
+    return '/servicios';
   };
 
   const containerVariants = {
@@ -156,10 +168,10 @@ const ServicesPreview = () => {
             </span>
           </motion.div>
           <h2 className="text-3xl md:text-4xl font-bold text-main mb-6 tracking-tight">
-            Nuestras <span className="gradient-text">5 Especialidades</span>
+            Productos y <span className="gradient-text">Servicios</span>
           </h2>
           <p className="text-lg text-subtle max-w-2xl mx-auto">
-            Soluciones profesionales para transformar cualquier espacio con calidad de clase mundial.
+            Muebles de alta calidad y servicios profesionales para transformar cualquier espacio.
           </p>
         </motion.div>
 
@@ -193,18 +205,19 @@ const ServicesPreview = () => {
               className={`grid gap-6 px-8 md:px-0
                 ${isMobile ? 'grid-cols-1' : 'grid-cols-2 lg:grid-cols-5'}`}
             >
-              {getCurrentServices().map((service, index) => (
-                <Link key={service.title} href={`/catalogo?servicio=${service.id}`}>
+              {getCurrentItems().map((item, index) => (
+                <Link key={item.title} href={getItemLink(item)}>
                   <motion.div
                     variants={cardVariants}
                     whileHover={{ y: -10, scale: 1.02 }}
                     className="glass-effect rounded-2xl p-0 subtle-shine group overflow-hidden flex flex-col cursor-pointer h-full"
                   >
-                    <div className="relative h-40 w-full">
+                    {/* Imagen más grande en mobile */}
+                    <div className="relative h-56 md:h-40 w-full">
                       <img
-                        alt={service.title}
+                        alt={item.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
-                        src={service.imgUrl}
+                        src={item.imgUrl}
                         onError={(e) => {
                           e.target.src = `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60`;
                         }}
@@ -214,19 +227,27 @@ const ServicesPreview = () => {
                         variants={iconContainerVariants}
                         initial="rest"
                         whileHover="hover"
-                        className="absolute top-3 right-3 w-10 h-10 bg-gold-gradient rounded-full flex items-center justify-center shadow-lg group-hover:pulse-glow"
+                        className="absolute top-4 right-4 md:top-3 md:right-3 w-14 h-14 md:w-10 md:h-10 bg-gold-gradient rounded-full flex items-center justify-center shadow-lg group-hover:pulse-glow"
                       >
-                        <service.icon className="w-5 h-5 text-primary" />
+                        <item.icon className="w-7 h-7 md:w-5 md:h-5 text-primary" />
                       </motion.div>
                     </div>
 
-                    <div className="p-4 flex flex-col flex-grow">
-                      <h3 className="text-base font-bold text-main mb-2 group-hover:text-highlight transition-colors duration-300 line-clamp-2">
-                        {service.title}
+                    {/* Contenido más grande en mobile */}
+                    <div className="p-6 md:p-4 flex flex-col flex-grow">
+                      <h3 className="text-xl md:text-base font-bold text-main mb-3 md:mb-2 group-hover:text-highlight transition-colors duration-300 line-clamp-2">
+                        {item.title}
                       </h3>
-                      <p className="text-subtle leading-relaxed text-xs line-clamp-3 group-hover:text-main transition-colors duration-300">
-                        {service.description}
+                      <p className="text-subtle leading-relaxed text-base md:text-xs line-clamp-3 group-hover:text-main transition-colors duration-300 mb-4 md:mb-0">
+                        {item.description}
                       </p>
+                      {/* Botón solo visible en mobile */}
+                      <div className="md:hidden mt-auto pt-2">
+                        <span className="inline-flex items-center text-highlight font-semibold text-sm">
+                          {item.type === 'producto' ? 'Ver productos' : 'Ver servicio'}
+                          <ChevronRight className="w-4 h-4 ml-1" />
+                        </span>
+                      </div>
                     </div>
                   </motion.div>
                 </Link>
@@ -257,14 +278,21 @@ const ServicesPreview = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button
             asChild
             size="lg"
             className="bg-transparent border-2 border-highlight text-highlight hover:bg-highlight hover:text-white hover:border-highlight hover:scale-105 transition-all duration-300 px-10 py-6 text-lg font-semibold shadow-lg"
           >
-            <Link href="/catalogo">Explorar Catálogo Completo</Link>
+            <Link href="/productos">Ver Productos</Link>
+          </Button>
+          <Button
+            asChild
+            size="lg"
+            className="bg-transparent border-2 border-highlight text-highlight hover:bg-highlight hover:text-white hover:border-highlight hover:scale-105 transition-all duration-300 px-10 py-6 text-lg font-semibold shadow-lg"
+          >
+            <Link href="/servicios">Ver Servicios</Link>
           </Button>
         </motion.div>
       </div>

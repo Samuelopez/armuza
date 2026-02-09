@@ -216,3 +216,13 @@ body {
   background-clip: text;
   text-shadow: 0 0 10px rgba(133, 73, 55, 0.5);
 }
+
+/* Ocultar scrollbar pero mantener funcionalidad de scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}

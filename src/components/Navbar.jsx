@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Home, Wrench, Users, Phone, Briefcase } from 'lucide-react';
+import { Menu, X, Home, Wrench, Users, Phone, Briefcase, FolderOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -22,9 +22,10 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', label: 'Inicio', icon: Home },
+    { path: '/productos', label: 'Productos', icon: Briefcase },
     { path: '/servicios', label: 'Servicios', icon: Wrench },
+    { path: '/proyectos', label: 'Proyectos', icon: FolderOpen },
     { path: '/nosotros', label: 'Nosotros', icon: Users },
-    { path: '/catalogo', label: 'Catálogo', icon: Briefcase },
   ];
 
   const navLinkVariants = {
