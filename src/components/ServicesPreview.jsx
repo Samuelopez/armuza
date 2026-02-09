@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const ServicesPreview = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -245,16 +246,12 @@ const ServicesPreview = () => {
                   >
                     {/* Imagen más grande en mobile */}
                     <div className="relative h-56 md:h-40 w-full">
-                      <img
+                      <Image
                         alt={item.title}
-                        width={500}
-                        height={400}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+                        fill
+                        sizes="(max-width: 768px) 85vw, 20vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                         src={item.imgUrl}
-                        onError={(e) => {
-                          e.target.src = `https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60`;
-                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/10"></div>
                       <motion.div

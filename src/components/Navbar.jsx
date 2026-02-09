@@ -6,6 +6,7 @@ import { Menu, X, Home, Wrench, Users, Phone, Briefcase, FolderOpen } from 'luci
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +63,7 @@ const Navbar = () => {
             className="flex items-center space-x-2"
           >
             <Link href="/" className="flex items-center space-x-2 group">
-              <img
+              <Image
                 src="/img/logo.webp"
                 alt="ARMUZA Logo"
                 width={32}

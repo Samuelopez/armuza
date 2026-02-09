@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Hammer, Palette, Home, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Hero = () => {
   const videoRef = useRef(null);
+  const isFirstSlide = useRef(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const serviceImages = [
@@ -27,6 +29,7 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      isFirstSlide.current = false;
       setCurrentImageIndex((prevIndex) =>
         (prevIndex + 1) % serviceImages.length
       );
@@ -57,18 +60,19 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <motion.div
           key={currentImageIndex}
-          initial={{ opacity: 0, scale: 1.1 }}
+          initial={isFirstSlide.current ? false : { opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="w-full h-full"
+          className="w-full h-full relative"
         >
-          <img
+          <Image
             src={serviceImages[currentImageIndex]}
             alt={`Servicio ${currentImageIndex + 1}`}
-            width={1920}
-            height={1080}
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority={isFirstSlide.current}
           />
         </motion.div>
         <div className="absolute inset-0 bg-black/40"></div>
@@ -102,7 +106,7 @@ const Hero = () => {
           className="space-y-8"
         >
           <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <img
+            <Image
               src="/img/logo.webp"
               alt="Logo ARMUZA"
               width={96}

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Award, Users, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const AboutPreview = () => {
   const itemVariants = {
@@ -29,13 +30,13 @@ const AboutPreview = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
         <motion.div variants={imageVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
           <div className="relative p-2 glass-effect rounded-2xl metallic-border shadow-2xl">
-            <img
+            <Image
               className="w-full h-auto max-h-[550px] object-cover rounded-xl"
               alt="Equipo ARMUZA colaborando en un proyecto de diseño de interiores, con planos y muestras de materiales"
               src="/img/3años.webp"
               width={800}
               height={550}
-              loading="lazy"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <motion.div
               className="absolute -bottom-5 -left-5 w-24 h-24 bg-gold-gradient rounded-full flex items-center justify-center text-primary shadow-xl"
