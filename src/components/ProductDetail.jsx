@@ -18,6 +18,9 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import dynamic from 'next/dynamic';
+
+const ShippingMap = dynamic(() => import('./ShippingMap'), { ssr: false });
 
 // Base de datos de productos (esto se puede mover a un archivo separado)
 const allProducts = {
@@ -2991,7 +2994,8 @@ const ProductDetail = ({ productId }) => {
           success: false,
           outOfZone: true,
           distance: distanceKm.toFixed(1),
-          location: destName
+          location: destName,
+          coords: destCoords
         });
       } else {
         // Calcular costo: (km / rendimiento) * precio_gasolina * 2 (ida y vuelta)
@@ -3004,7 +3008,8 @@ const ProductDetail = ({ productId }) => {
           duration: durationMinutes,
           cost: shippingCost,
           location: destName,
-          approximate: usesStraightLine
+          approximate: usesStraightLine,
+          coords: destCoords
         });
       }
     } catch (error) {
@@ -3481,10 +3486,17 @@ const ProductDetail = ({ productId }) => {
                       <p className="text-sm text-subtle mb-1">
                         Ubicación: {shippingResult.location}
                       </p>
-                      <p className="text-sm text-subtle mb-3">
+                      <p className="text-sm text-subtle mb-1">
                         Distancia: ~{shippingResult.distance} km (~{shippingResult.duration} min)
                         {shippingResult.approximate && <span className="text-xs text-amber-500 ml-1">(aprox.)</span>}
                       </p>
+                      {shippingResult.coords && (
+                        <ShippingMap
+                          originCoords={SHIPPING_CONFIG.originCoords}
+                          destCoords={shippingResult.coords}
+                          destName={shippingResult.location}
+                        />
+                      )}
                       <div className="bg-card rounded-lg p-3 mb-4">
                         <p className="text-sm text-subtle">Costo de envío{shippingResult.approximate ? ' estimado' : ''}:</p>
                         <p className="text-2xl font-bold text-highlight">${shippingResult.cost} MXN</p>
@@ -3510,9 +3522,16 @@ const ProductDetail = ({ productId }) => {
                       <p className="text-sm text-subtle mb-1">
                         Ubicación: {shippingResult.location}
                       </p>
-                      <p className="text-sm text-subtle mb-3">
+                      <p className="text-sm text-subtle mb-1">
                         Tu ubicación está a {shippingResult.distance} km. Nuestro límite de entrega es de {SHIPPING_CONFIG.maxDistance} km.
                       </p>
+                      {shippingResult.coords && (
+                        <ShippingMap
+                          originCoords={SHIPPING_CONFIG.originCoords}
+                          destCoords={shippingResult.coords}
+                          destName={shippingResult.location}
+                        />
+                      )}
                       <div className="flex justify-center">
                         <Link href={`/contacto?servicio=${product.category}&producto=${product.name}&mensaje=Estoy fuera de zona (${shippingResult.distance}km), solicito cotización especial`}>
                           <motion.button
