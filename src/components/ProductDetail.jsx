@@ -3492,7 +3492,6 @@ const ProductDetail = ({ productId }) => {
                       </p>
                       {shippingResult.coords && (
                         <ShippingMap
-                          originCoords={SHIPPING_CONFIG.originCoords}
                           destCoords={shippingResult.coords}
                           destName={shippingResult.location}
                         />
@@ -3527,7 +3526,6 @@ const ProductDetail = ({ productId }) => {
                       </p>
                       {shippingResult.coords && (
                         <ShippingMap
-                          originCoords={SHIPPING_CONFIG.originCoords}
                           destCoords={shippingResult.coords}
                           destName={shippingResult.location}
                         />
