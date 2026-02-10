@@ -3080,6 +3080,7 @@ const ProductDetail = ({ productId }) => {
     setAutocompleteSuggestions([]);
     setSelectedCoords(null);
     setShowSuggestions(false);
+    document.body.style.overflow = '';
   };
 
   if (loading) {
@@ -3332,7 +3333,7 @@ const ProductDetail = ({ productId }) => {
 
             {/* Botón de Comprar */}
             <motion.button
-              onClick={() => setShowShippingModal(true)}
+              onClick={() => { setShowShippingModal(true); document.body.style.overflow = 'hidden'; }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="w-full bg-gold-gradient text-primary py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all mb-4"
@@ -3410,14 +3411,14 @@ const ProductDetail = ({ productId }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto"
             onClick={resetShippingModal}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-card rounded-2xl max-w-md w-full p-6 md:p-8"
+              className="bg-card rounded-2xl max-w-md w-full p-6 md:p-8 my-auto"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header del modal */}
