@@ -2853,15 +2853,17 @@ const ProductDetail = ({ productId }) => {
     try {
       // Preparar la búsqueda - agregar contexto para México
       let searchText = shippingAddress.trim();
+      const isPostalCode = /^\d{5}$/.test(searchText);
       // Si es solo un código postal, agregar contexto
-      if (/^\d{5}$/.test(searchText)) {
+      if (isPostalCode) {
         searchText = `${searchText}, México`;
       }
 
       // Paso 1: Geocodificar la dirección del cliente
       // Limitar búsqueda a zona centro de México (CDMX, Estado de México, Morelos, etc.)
       // boundary.rect: min_lon, min_lat, max_lon, max_lat
-      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&boundary.rect.min_lon=-100.5&boundary.rect.min_lat=18.5&boundary.rect.max_lon=-98.5&boundary.rect.max_lat=20.5&size=5`;
+      const layersParam = isPostalCode ? '&layers=postalcode' : '';
+      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&boundary.rect.min_lon=-100.5&boundary.rect.min_lat=18.5&boundary.rect.max_lon=-98.5&boundary.rect.max_lat=20.5&size=5${layersParam}`;
 
       const geocodeResponse = await fetch(geocodeUrl);
       const geocodeData = await geocodeResponse.json();
