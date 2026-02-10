@@ -3023,6 +3023,56 @@ const ProductDetail = ({ productId }) => {
     setCalculatingShipping(false);
   };
 
+  // Recalcular envío cuando el cliente mueve el marcador del mapa
+  const handleMapCoordsChange = async (newCoords) => {
+    setSelectedCoords(newCoords);
+
+    try {
+      let distanceKm;
+      let durationMinutes;
+      let usesStraightLine = false;
+
+      try {
+        const directionsUrl = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${SHIPPING_CONFIG.apiKey}&start=${SHIPPING_CONFIG.originCoords[0]},${SHIPPING_CONFIG.originCoords[1]}&end=${newCoords[0]},${newCoords[1]}`;
+        const directionsResponse = await fetch(directionsUrl);
+        const directionsData = await directionsResponse.json();
+
+        if (directionsData.features && directionsData.features.length > 0) {
+          distanceKm = directionsData.features[0].properties.segments[0].distance / 1000;
+          durationMinutes = Math.round(directionsData.features[0].properties.segments[0].duration / 60);
+        } else {
+          throw new Error('No route found');
+        }
+      } catch {
+        const straightDistance = calculateHaversineDistance(
+          SHIPPING_CONFIG.originCoords[1], SHIPPING_CONFIG.originCoords[0],
+          newCoords[1], newCoords[0]
+        );
+        distanceKm = straightDistance * 1.3;
+        durationMinutes = Math.round(distanceKm * 1.5);
+        usesStraightLine = true;
+      }
+
+      const locationName = shippingResult?.location || shippingAddress;
+
+      if (distanceKm > SHIPPING_CONFIG.maxDistance) {
+        setShippingResult({
+          success: false, outOfZone: true,
+          distance: distanceKm.toFixed(1), location: locationName, coords: newCoords
+        });
+      } else {
+        const litersNeeded = (distanceKm * 2) / SHIPPING_CONFIG.carEfficiency;
+        const shippingCost = Math.ceil(litersNeeded * SHIPPING_CONFIG.gasPrice);
+        setShippingResult({
+          success: true, distance: distanceKm.toFixed(1), duration: durationMinutes,
+          cost: shippingCost, location: locationName, approximate: usesStraightLine, coords: newCoords
+        });
+      }
+    } catch {
+      // Si falla, mantener resultado anterior
+    }
+  };
+
   const resetShippingModal = () => {
     setShowShippingModal(false);
     setShippingAddress('');
@@ -3493,7 +3543,7 @@ const ProductDetail = ({ productId }) => {
                       {shippingResult.coords && (
                         <ShippingMap
                           destCoords={shippingResult.coords}
-                          destName={shippingResult.location}
+                          onCoordsChange={handleMapCoordsChange}
                         />
                       )}
                       <div className="bg-card rounded-lg p-3 mb-4">
@@ -3527,7 +3577,7 @@ const ProductDetail = ({ productId }) => {
                       {shippingResult.coords && (
                         <ShippingMap
                           destCoords={shippingResult.coords}
-                          destName={shippingResult.location}
+                          onCoordsChange={handleMapCoordsChange}
                         />
                       )}
                       <div className="flex justify-center">
