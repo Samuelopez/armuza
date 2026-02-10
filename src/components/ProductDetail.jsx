@@ -2855,7 +2855,7 @@ const ProductDetail = ({ productId }) => {
       let searchText = shippingAddress.trim();
       // Si es solo un código postal, agregar contexto
       if (/^\d{5}$/.test(searchText)) {
-        searchText = `${searchText}, Estado de México, México`;
+        searchText = `${searchText}, México`;
       }
 
       // Paso 1: Geocodificar la dirección del cliente
