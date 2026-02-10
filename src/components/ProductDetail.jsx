@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
@@ -2770,6 +2770,10 @@ const ProductDetail = ({ productId }) => {
   const [shippingAddress, setShippingAddress] = useState('');
   const [shippingResult, setShippingResult] = useState(null);
   const [calculatingShipping, setCalculatingShipping] = useState(false);
+  const [autocompleteSuggestions, setAutocompleteSuggestions] = useState([]);
+  const [selectedCoords, setSelectedCoords] = useState(null);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const autocompleteTimer = useRef(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
@@ -2844,60 +2848,111 @@ const ProductDetail = ({ productId }) => {
     return R * c;
   };
 
+  // Autocomplete: buscar sugerencias mientras el usuario escribe
+  const fetchAutocompleteSuggestions = async (text) => {
+    if (text.length < 3) {
+      setAutocompleteSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
+    try {
+      const autocompleteUrl = `https://api.openrouteservice.org/geocode/autocomplete?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(text)}&boundary.country=MX&boundary.rect.min_lon=-100.5&boundary.rect.min_lat=18.5&boundary.rect.max_lon=-98.5&boundary.rect.max_lat=20.5&size=5`;
+
+      const response = await fetch(autocompleteUrl);
+      const data = await response.json();
+
+      if (data.features && data.features.length > 0) {
+        setAutocompleteSuggestions(data.features);
+        setShowSuggestions(true);
+      } else {
+        setAutocompleteSuggestions([]);
+        setShowSuggestions(false);
+      }
+    } catch {
+      setAutocompleteSuggestions([]);
+      setShowSuggestions(false);
+    }
+  };
+
+  const handleAddressChange = (e) => {
+    const value = e.target.value;
+    setShippingAddress(value);
+    setSelectedCoords(null);
+    setShippingResult(null);
+
+    // Debounce: esperar 300ms después de que el usuario deje de escribir
+    if (autocompleteTimer.current) clearTimeout(autocompleteTimer.current);
+    autocompleteTimer.current = setTimeout(() => {
+      fetchAutocompleteSuggestions(value);
+    }, 300);
+  };
+
+  const handleSuggestionSelect = (feature) => {
+    setShippingAddress(feature.properties.label);
+    setSelectedCoords(feature.geometry.coordinates); // [lon, lat]
+    setAutocompleteSuggestions([]);
+    setShowSuggestions(false);
+  };
+
   const calculateShipping = async () => {
     if (!shippingAddress.trim()) return;
 
     setCalculatingShipping(true);
     setShippingResult(null);
+    setShowSuggestions(false);
 
     try {
-      // Preparar la búsqueda - agregar contexto para México
-      let searchText = shippingAddress.trim();
-      const isPostalCode = /^\d{5}$/.test(searchText);
-      // Si es solo un código postal, agregar contexto
-      if (isPostalCode) {
-        searchText = `${searchText}, México`;
-      }
+      let destCoords;
+      let destName;
 
-      // Paso 1: Geocodificar la dirección del cliente
-      // Limitar búsqueda a zona centro de México (CDMX, Estado de México, Morelos, etc.)
-      // boundary.rect: min_lon, min_lat, max_lon, max_lat
-      const layersParam = isPostalCode ? '&layers=postalcode' : '';
-      const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&boundary.rect.min_lon=-100.5&boundary.rect.min_lat=18.5&boundary.rect.max_lon=-98.5&boundary.rect.max_lat=20.5&size=5${layersParam}`;
-
-      const geocodeResponse = await fetch(geocodeUrl);
-      const geocodeData = await geocodeResponse.json();
-
-      if (!geocodeData.features || geocodeData.features.length === 0) {
-        setShippingResult({
-          success: false,
-          error: 'No pudimos encontrar esa dirección. Intenta escribir tu colonia y ciudad, ej: "Roma Norte, CDMX"'
-        });
-        setCalculatingShipping(false);
-        return;
-      }
-
-      // Seleccionar el resultado más cercano al origen (dentro de la zona de servicio)
-      let bestResult = geocodeData.features[0];
-      let bestDistance = Infinity;
-
-      for (const feature of geocodeData.features) {
-        const coords = feature.geometry.coordinates;
-        const dist = calculateHaversineDistance(
-          SHIPPING_CONFIG.originCoords[1],
-          SHIPPING_CONFIG.originCoords[0],
-          coords[1],
-          coords[0]
-        );
-        // Preferir resultados que estén dentro de un rango razonable (200km) y más cercanos
-        if (dist < bestDistance && dist < 200) {
-          bestDistance = dist;
-          bestResult = feature;
+      if (selectedCoords) {
+        // Ya tenemos coordenadas del autocomplete, no necesitamos geocodificar
+        destCoords = selectedCoords;
+        destName = shippingAddress;
+      } else {
+        // Geocodificar manualmente si no se seleccionó una sugerencia
+        let searchText = shippingAddress.trim();
+        const isPostalCode = /^\d{5}$/.test(searchText);
+        if (isPostalCode) {
+          searchText = `${searchText}, México`;
         }
-      }
 
-      const destCoords = bestResult.geometry.coordinates; // [lon, lat]
-      const destName = bestResult.properties.label;
+        const layersParam = isPostalCode ? '&layers=postalcode' : '';
+        const geocodeUrl = `https://api.openrouteservice.org/geocode/search?api_key=${SHIPPING_CONFIG.apiKey}&text=${encodeURIComponent(searchText)}&boundary.country=MX&boundary.rect.min_lon=-100.5&boundary.rect.min_lat=18.5&boundary.rect.max_lon=-98.5&boundary.rect.max_lat=20.5&size=5${layersParam}`;
+
+        const geocodeResponse = await fetch(geocodeUrl);
+        const geocodeData = await geocodeResponse.json();
+
+        if (!geocodeData.features || geocodeData.features.length === 0) {
+          setShippingResult({
+            success: false,
+            error: 'No pudimos encontrar esa dirección. Intenta escribir tu colonia y ciudad, ej: "Roma Norte, CDMX"'
+          });
+          setCalculatingShipping(false);
+          return;
+        }
+
+        let bestResult = geocodeData.features[0];
+        let bestDistance = Infinity;
+
+        for (const feature of geocodeData.features) {
+          const coords = feature.geometry.coordinates;
+          const dist = calculateHaversineDistance(
+            SHIPPING_CONFIG.originCoords[1],
+            SHIPPING_CONFIG.originCoords[0],
+            coords[1],
+            coords[0]
+          );
+          if (dist < bestDistance && dist < 200) {
+            bestDistance = dist;
+            bestResult = feature;
+          }
+        }
+
+        destCoords = bestResult.geometry.coordinates;
+        destName = bestResult.properties.label;
+      }
 
       // Paso 2: Intentar calcular ruta, si falla usar distancia en línea recta
       let distanceKm;
@@ -2967,6 +3022,9 @@ const ProductDetail = ({ productId }) => {
     setShowShippingModal(false);
     setShippingAddress('');
     setShippingResult(null);
+    setAutocompleteSuggestions([]);
+    setSelectedCoords(null);
+    setShowSuggestions(false);
   };
 
   if (loading) {
@@ -3333,24 +3391,48 @@ const ProductDetail = ({ productId }) => {
                 </div>
               </div>
 
-              {/* Input de dirección */}
+              {/* Input de dirección con autocomplete */}
               <div className="mb-4">
                 <label className="block text-sm font-medium text-main mb-2">
                   ¿A dónde enviamos tu mueble?
                 </label>
                 <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-subtle" />
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-subtle z-10" />
                   <input
                     type="text"
                     value={shippingAddress}
-                    onChange={(e) => setShippingAddress(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && calculateShipping()}
-                    placeholder="Código postal o dirección"
+                    onChange={handleAddressChange}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        setShowSuggestions(false);
+                        calculateShipping();
+                      }
+                    }}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                    placeholder="Escribe tu dirección o código postal"
+                    autoComplete="off"
                     className="w-full pl-10 pr-4 py-3 bg-secondary border border-border rounded-xl text-main placeholder:text-subtle focus:outline-none focus:border-highlight transition-colors"
                   />
+                  {/* Dropdown de sugerencias */}
+                  {showSuggestions && autocompleteSuggestions.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-card border border-border rounded-xl shadow-xl z-50 overflow-hidden">
+                      {autocompleteSuggestions.map((feature, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onMouseDown={(e) => e.preventDefault()}
+                          onClick={() => handleSuggestionSelect(feature)}
+                          className="w-full text-left px-4 py-3 hover:bg-secondary/50 transition-colors flex items-start gap-3 border-b border-border/30 last:border-b-0"
+                        >
+                          <MapPin className="w-4 h-4 text-highlight mt-0.5 shrink-0" />
+                          <span className="text-sm text-main">{feature.properties.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <p className="text-xs text-subtle mt-2">
-                  Ejemplo: 50000 o Toluca, Estado de México
+                  Ejemplo: Condesa, CDMX o Toluca, Estado de México
                 </p>
               </div>
 
